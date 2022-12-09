@@ -3,23 +3,27 @@ import axios from 'axios'
 
 const BASE_URL = `${process.env.REACT_APP_BASE_URL}`
 
-const initialState = { jwt: null }
+const initialState = { jwt: null, error: null }
 
 export const AuthSlice = createSlice({
     name: 'auth',
     reducers: {
+        setError: (state, action) => {
+            state.error = action.payload
+        },
         authenticateUser: (state, action) => {
             state.jwt = action.payload
+            state.error = null
             return state
         },
         logout: () => {
-            return { jwt: null }
+            return { jwt: null, error: null }
         }
     },
     initialState
 })
 
-export const { authenticateUser, logout } = AuthSlice.actions
+export const { authenticateUser, logout, setError } = AuthSlice.actions
 
 export default AuthSlice.reducer
 
@@ -39,11 +43,16 @@ export const signUp = (payload) => {
 
 export const signIn = (payload) => {
     return async dispatch => {
-        const signInResponse = await axios.post(`${BASE_URL}/user/login`, {
-            email: payload.email,
-            password: payload.password
-        })
-        const jwt = signInResponse.data.jwt
-        dispatch(jwt)
+        try {
+            const signInResponse = await axios.post(`${BASE_URL}/user/login`, {
+                email: payload.email,
+                password: payload.password
+            })
+            const jwt = signInResponse.data.jwt
+            dispatch(authenticateUser(jwt))
+        } catch (e) {
+            console.log(e.response.data)
+            dispatch(setError(e.response.data.error))
+        }
     }
 }

@@ -16,8 +16,7 @@ function TopNav() {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link>Login</Nav.Link>
-                        <Nav.Link>Signup</Nav.Link>
+                        <Nav.Link href="/login">Login</Nav.Link>
                     </Nav>
                     <Nav>
                         <Nav.Link href="#deets">Contact Us</Nav.Link>
