@@ -5,6 +5,8 @@ import Home from "./components/HomeScreen/Home";
 import Login from './components/Login/Login'
 import Profile from './components/Profile/Profile'
 import TopNav from "./components/Header/TopNav";
+import HouseDetails from "./components/House/HouseDetails"
+
 function App() {
   return (
     <BrowserRouter>
@@ -18,6 +20,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/profile/:id" element={<Profile />} />
+          <Route path="/house-details" element={<HouseDetails/>}/>
         </Routes>
       </div>
     </BrowserRouter>
