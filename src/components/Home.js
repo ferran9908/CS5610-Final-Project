@@ -1,7 +1,7 @@
 import TopNav from "./TopNav"
 
 function Home() {
-    return(
+    return (
         <div>
             <TopNav/>
         </div>
