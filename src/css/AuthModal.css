@@ -1,0 +1,15 @@
+.authbody {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    color: white;
+}
+
+.change-signup:hover {
+    color: gray;
+}
+
+.change-signup {
+    cursor: pointer;
+    text-decoration: underline;
+}
