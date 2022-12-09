@@ -43,7 +43,6 @@ export const findHouse = (hid) => {
         const house = findHouse.data
         dispatch(getHouse(house))
     }
-
 }
 
 export const findAllHouses = () => {
@@ -57,9 +56,7 @@ export const findAllHouses = () => {
 
 export const deleteHouse = (hid) => {
     return async dispatch => {
-        const deleteHouse = await axios.get(`${BASE_URL}/${hid}`)
+        const deleteHouse = await axios.delete(`${BASE_URL}/${hid}`)
     }
-
 }
-
 
