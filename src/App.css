@@ -1,38 +1,35 @@
-.App {
-  text-align: center;
+/*@import "~bootstrap/scss/bootstrap";*/
+/*@import url("https://cdn.syncfusion.com/ej2/material.css");*/
+
+/*//app content*/
+.app-content{
+  background-color: black;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/*//styles*/
+  .app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: black;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/*//headers*/
+  .header {
+    position: sticky;
+    z-index:2;
+    top: 0;
+    padding: 15px 5px;
+    background-color: black;
   }
-  to {
-    transform: rotate(360deg);
+/*//footer*/
+  .footer {
+    padding: 15px 5px;
+    background-color: black;
+    margin-top: auto;
   }
+.nav {
+  background-color: black;
 }
+
+
+

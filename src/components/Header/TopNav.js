@@ -1,7 +1,8 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import logo from '../imgs/logo.png';
+import logo from '../../imgs/logo.png';
+import './TopNav.css'
 
 function TopNav() {
     return (
@@ -14,6 +15,9 @@ function TopNav() {
                     <Nav className="me-auto">
                         <Nav.Link href="#login">Login</Nav.Link>
                         <Nav.Link href="#signup">Signup</Nav.Link>
+                    </Nav>
+                    <Nav>
+                        <Nav.Link href="#deets">Contact Us</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
