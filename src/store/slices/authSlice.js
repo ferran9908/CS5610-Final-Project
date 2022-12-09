@@ -3,19 +3,26 @@ import axios from 'axios'
 
 const BASE_URL = `${process.env.REACT_APP_BASE_URL}`
 
-const initialState = { jwt: null, error: null }
+const initialState = { jwt: null, error: null, user: null }
 
 export const AuthSlice = createSlice({
     name: 'auth',
     reducers: {
         setError: (state, action) => {
             state.error = action.payload
+            return state
         },
         authenticateUser: (state, action) => {
-            state.jwt = action.payload
+            state.jwt = action.payload.jwt
+            state.user = action.payload.user
             state.error = null
             return state
         },
+        // setUser: (state, action) => {
+        //     console.log({ payload: action.payload })
+        //     state.user = action.payload
+        //     return state
+        // },
         logout: () => {
             return { jwt: null, error: null }
         }
@@ -37,7 +44,8 @@ export const signUp = (payload) => {
             password: payload.password
         })
         const jwt = signInResponse.data.jwt
-        dispatch(authenticateUser(jwt))
+        const user = signInResponse.data.user
+        dispatch(authenticateUser({ jwt, user }))
     }
 }
 
@@ -49,10 +57,28 @@ export const signIn = (payload) => {
                 password: payload.password
             })
             const jwt = signInResponse.data.jwt
-            dispatch(authenticateUser(jwt))
+            const user = signInResponse.data.user
+            dispatch(authenticateUser({ jwt, user }))
         } catch (e) {
             console.log(e.response.data)
             dispatch(setError(e.response.data.error))
+        }
+    }
+}
+
+export const getCurrentUserData = (jwt) => {
+    return async dispatch => {
+        try {
+            const userResponse = await axios.get(`${BASE_URL}/user/fetch-edited-user`, {
+                headers: {
+                    'Authorization': `Bearer ${jwt}`
+                }
+            })
+            const user = userResponse.data
+            console.log({ user })
+            dispatch(authenticateUser(user))
+        } catch (e) {
+            console.error({ error: e })
         }
     }
 }
