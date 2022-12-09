@@ -22,7 +22,7 @@ function App() {
           {/* Should be a protected route */}
           <Route path="/profile" element={<MyProfile />} />
           <Route path="/profile/:id" element={<Profile />} />
-          <Route path="/house-details" element={<HouseDetails />} />
+          <Route path="/house/:id" element={<HouseDetails />} />
         </Routes>
       </div>
     </BrowserRouter>

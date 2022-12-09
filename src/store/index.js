@@ -3,6 +3,7 @@ import storage from 'redux-persist/lib/storage';
 import { persistReducer } from 'redux-persist';
 import AuthReducer from './slices/authSlice'
 import ProfileReducer from './slices/profileSlice'
+import HouseReducer from './slices/houseSlice'
 
 const persistConfig = {
   key: 'root',
@@ -11,7 +12,8 @@ const persistConfig = {
 
 const reducers = combineReducers({
   auth: AuthReducer,
-  profile: ProfileReducer
+  profile: ProfileReducer,
+  houses: HouseReducer
 });
 
 const persistedReducer = persistReducer(persistConfig, reducers);
