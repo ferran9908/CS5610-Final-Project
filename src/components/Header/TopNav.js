@@ -8,13 +8,13 @@ function TopNav() {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
-                <img src = {logo} className="wd-image-style rounded-circle pt-1" style={{width : '40px', height : '50px'}} alt={"logo"}/>
+                <img src={logo} className="wd-image-style rounded-circle pt-1" style={{ width: '40px', height: '50px' }} alt={"logo"} />
                 <Navbar.Brand href="#home">Pillow</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="#login">Login</Nav.Link>
-                        <Nav.Link href="#signup">Signup</Nav.Link>
+                        <Nav.Link>Login</Nav.Link>
+                        <Nav.Link>Signup</Nav.Link>
                     </Nav>
                     <Nav>
                         <Nav.Link href="#deets">Contact Us</Nav.Link>
