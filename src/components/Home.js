@@ -1,7 +1,9 @@
+import TopNav from "./TopNav"
+
 function Home() {
     return(
         <div>
-            Home
+            <TopNav/>
         </div>
     )
 }
