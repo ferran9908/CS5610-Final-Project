@@ -1,0 +1,68 @@
+.body {
+    background: linear-gradient(135deg, whitesmoke 40%, peachpuff);
+}
+
+.buyerListingbody{
+    padding:70px;
+    margin: 50px;
+    /*background: linear-gradient(135deg, whitesmoke 40%, peachpuff);*/
+    background-color: #D1C7BD;
+}
+.listingImage {
+    width: 90%;
+    border-image-width: 2px;
+    border-color: black;
+}
+
+.listingName {
+    padding-top: 50px;
+    padding-left: 50px;
+    font-size: xxx-large;
+    font-family: Baskerville;
+    align-content: center;
+    color: whitesmoke;
+}
+.buyerListingbox1{
+    /*background-color: #747267;*/
+
+    text-align: left;
+}
+
+.buyerListingbox2 li{
+    font-family: Baskerville;
+    font-size: 30px;
+    /*font-size: large;*/
+    display: grid;
+
+}
+
+.buyerListingbox2{
+    text-align: left;
+}
+
+.buyerListingdivide {
+    z-index:1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    justify-items: left;
+    align-items: center;
+}
+
+.buyerListinggrids{
+    display: grid;
+    gap: 5rem;
+    grid-template-columns: repeat(auto-fit, 20rem);
+
+}
+
+
+.backbutton {
+    background: linear-gradient(135deg, #A88D79 40%, #BEA79D);
+    width: 65px;
+    height:40px;
+    color:white;
+    align-content: center;
+    margin-left: 100px;
+}

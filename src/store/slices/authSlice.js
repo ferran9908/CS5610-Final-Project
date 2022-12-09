@@ -28,6 +28,7 @@ export const signUp = (payload) => {
     return async (dispatch) => {
         await axios.post(`${BASE_URL}/user/signup`, payload)
         const signInResponse = await axios.post(`${BASE_URL}/user/login`, {
+            //Pass json 
             email: payload.email,
             password: payload.password
         })
