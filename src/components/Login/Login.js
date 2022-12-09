@@ -1,13 +1,14 @@
-import '../css/AuthModal.css'
+import '../../css/AuthModal.css'
 import React, { useEffect, useState } from 'react'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
-import { useDispatch } from 'react-redux'
-import { signUp, signIn } from '../store/slices/authSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { signUp, signIn, logout } from '../../store/slices/authSlice'
 import { useNavigate } from 'react-router'
 
 const Login = () => {
     const dispatch = useDispatch()
+    const authData = useSelector(state => state.auth)
     const navigateTo = useNavigate()
     const [isSignUp, setIsSignUp] = useState(false)
     const [formData, setFormData] = useState({ name: '', email: '', password: '', role: 'BUYER' })
@@ -17,8 +18,15 @@ const Login = () => {
         } else {
             dispatch(signIn({ email: formData.email, password: formData.password }))
         }
-        navigateTo("/")
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    useEffect(() => { dispatch(logout()) }, [])
+    useEffect(() => {
+        if (authData.jwt) {
+            navigateTo("/")
+        }
+    })
     return (
         <div className="authbody">
             <div>
@@ -33,6 +41,7 @@ const Login = () => {
                         <option value="ADMIN">Admin</option>
                     </Form.Select>
                 </div>}
+                {authData.error && <p style={{ color: 'red' }}>{authData.error}</p>}
                 <small className='change-signup' onClick={() => setIsSignUp(!isSignUp)}>New to our app? Sign Up!</small>
                 <Button onClick={handleAuth} className="display-block w-full mt-3">{isSignUp ? 'Sign Up!' : 'Sign In!'}</Button>
             </div>
