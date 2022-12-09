@@ -1,0 +1,14 @@
+.navigationBar {
+    margin: 2px;
+    height: 90px;
+    background: linear-gradient(135deg, cornflowerblue 40%, whitesmoke);
+}
+
+.headingLogo{
+    font-family:fantasy;
+    font-palette: dark;
+    font-style: italic;
+    font-size: 40px;
+    padding-top: 20px;
+    padding-left: 20px;
+}
