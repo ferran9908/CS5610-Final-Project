@@ -3,13 +3,16 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from '../../imgs/logo.png';
 import './TopNav.css'
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faHome} from "@fortawesome/free-solid-svg-icons";
 
 function TopNav() {
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar className="navigationBar" collapseOnSelect expand="lg" variant="dark">
             <Container>
-                <img src={logo} className="wd-image-style rounded-circle pt-1" style={{ width: '40px', height: '50px' }} alt={"logo"} />
-                <Navbar.Brand href="#home">Pillow</Navbar.Brand>
+                <FontAwesomeIcon icon={faHome} size={"xl"} color={"white"} />
+                {/*<img src={logo} className="wd-image-style rounded-circle pt-1" style={{ width: '40px', height: '50px' }} alt={"logo"} />*/}
+                <Navbar.Brand className="headingLogo" href="#home">Pillows</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">

@@ -1,4 +1,3 @@
-import TopNav from "../Header/TopNav"
 import bg from "../../imgs/bg.jpeg"
 import SearchBar from "../SearchBar/SearchBar";
 import './HomeScreen.css'

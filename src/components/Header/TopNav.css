@@ -18,6 +18,28 @@
     width: 80%
 }
 
+
+.navigationBar {
+    margin: 2px;
+    height: 70px;
+    font-size:large;
+    background-color: #A88D79;
+}
+.Navbar Brand {
+    font-size: xx-large;
+}
+
+.headingLogo{
+    margin-top: 10px;
+    padding-left: 10px;
+    font-size: larger;
+
+    font-family:fantasy;
+    font-style: italic;
+
+
+}
+
 h6{
     color: white;
 }
