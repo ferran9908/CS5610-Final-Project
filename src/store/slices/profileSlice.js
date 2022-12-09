@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
+import { getCurrentUserData } from './authSlice'
 
 const BASE_URL = `${process.env.REACT_APP_BASE_URL}`
 
@@ -32,4 +33,18 @@ export const fetchUserById = (id) => async dispatch => {
     } catch (e) {
         console.error({ error: e })
     }
+}
+
+export const editProfile = ({ name, email, role, jwt }) => async dispatch => {
+    try {
+        await axios.put(`${BASE_URL}/user/edit-profile`, { name, email, role }, {
+            headers: {
+                'Authorization': `Bearer ${jwt}`
+            }
+        })
+        dispatch(getCurrentUserData(jwt))
+    } catch (e) {
+        console.error({ error: e })
+    }
+
 }
