@@ -3,16 +3,21 @@ import React, { useEffect, useState } from 'react'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import { useDispatch } from 'react-redux'
-import { signUp } from '../store/slices/authSlice'
+import { signUp, signIn } from '../store/slices/authSlice'
+import { useNavigate } from 'react-router'
 
 const Login = () => {
     const dispatch = useDispatch()
+    const navigateTo = useNavigate()
     const [isSignUp, setIsSignUp] = useState(false)
     const [formData, setFormData] = useState({ name: '', email: '', password: '', role: 'BUYER' })
     const handleAuth = () => {
         if (isSignUp) {
             dispatch(signUp(formData))
+        } else {
+            dispatch(signIn({ email: formData.email, password: formData.password }))
         }
+        navigateTo("/")
     }
     return (
         <div className="authbody">

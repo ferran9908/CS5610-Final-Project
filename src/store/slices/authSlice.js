@@ -43,6 +43,6 @@ export const signIn = (payload) => {
             password: payload.password
         })
         const jwt = signInResponse.data.jwt
-        dispatch(jwt)
+        dispatch(authenticateUser(jwt))
     }
 }
