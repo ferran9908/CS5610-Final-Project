@@ -5,11 +5,13 @@
 .buyerListingbody{
     padding:70px;
     margin: 50px;
+    border-radius: 20px;
     /*background: linear-gradient(135deg, whitesmoke 40%, peachpuff);*/
     background-color: #D1C7BD;
 }
 .listingImage {
     width: 90%;
+    border-radius: 20px;
     border-image-width: 2px;
     border-color: black;
 }
@@ -30,7 +32,7 @@
 
 .buyerListingbox2 li{
     font-family: Baskerville;
-    font-size: 30px;
+    font-size: 25px;
     /*font-size: large;*/
     display: grid;
 

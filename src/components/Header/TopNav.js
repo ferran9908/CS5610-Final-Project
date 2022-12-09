@@ -10,9 +10,9 @@ function TopNav() {
     return (
         <Navbar className="navigationBar" collapseOnSelect expand="lg" variant="dark">
             <Container>
-                <FontAwesomeIcon icon={faHome} size={"xl"} color={"white"} />
+                <FontAwesomeIcon icon={faHome} size={"2xl"} color={"white"} />
                 {/*<img src={logo} className="wd-image-style rounded-circle pt-1" style={{ width: '40px', height: '50px' }} alt={"logo"} />*/}
-                <Navbar.Brand className="headingLogo" href="#home">Pillows</Navbar.Brand>
+                <Navbar.Brand className="headingLogo" href="#home">Pillow</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
