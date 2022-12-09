@@ -1,3 +1,32 @@
+.app-content{
+  background-color: black;
+}
+
+/*//styles*/
+  .app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: black;
+  }
+/*//headers*/
+  .header {
+    position: sticky;
+    z-index:2;
+    top: 0;
+    padding: 15px 5px;
+    background-color: black;
+  }
+/*//footer*/
+  .footer {
+    padding: 15px 5px;
+    background-color: black;
+    margin-top: auto;
+  }
+.nav {
+  background-color: black;
+}
+
 .display-block {
   display: block;
 }
@@ -9,3 +38,4 @@
 .w-full {
   width: 100%;
 }
+
