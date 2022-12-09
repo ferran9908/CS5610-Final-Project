@@ -3,6 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Routes, Route } from "react-router"
 import Home from "./components/HomeScreen/Home";
 import Login from './components/Login/Login'
+import Profile from './components/Profile/Profile'
 import TopNav from "./components/Header/TopNav";
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile/:id" element={<Profile />} />
         </Routes>
       </div>
     </BrowserRouter>
