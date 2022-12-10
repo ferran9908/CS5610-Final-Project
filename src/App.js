@@ -8,6 +8,7 @@ import TopNav from "./components/Header/TopNav";
 import HouseDetails from "./components/House/HouseDetails";
 import MyProfile from "./components/MyProfile/MyProfile";
 import SellerBookings from "./components/Booking/SellerBookings"
+import FavHouse from "./components/House/FavHouse";
 function App() {
   return (
     <BrowserRouter>
@@ -24,7 +25,7 @@ function App() {
           <Route path="/profile/:id" element={<Profile />} />
           <Route path="/house/:id" element={<HouseDetails />} />
           <Route path="/booking" element={<SellerBookings />} />
-
+          <Route path="/favourites" element={<FavHouse />} />
         </Routes>
       </div>
     </BrowserRouter>
