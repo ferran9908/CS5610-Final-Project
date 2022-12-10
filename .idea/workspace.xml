@@ -5,9 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0838aaf-6a47-47a8-9efe-9ddbda0a1261" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/House/HouseCard.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/House/HouseCard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/slices/bookingSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/slices/bookingSlice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/slices/houseSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/slices/houseSlice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/TopNav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/TopNav.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomeScreen/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomeScreen/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomeScreen/HomeScreen.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomeScreen/HomeScreen.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/House/HouseDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/House/HouseDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MyProfile/MyProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MyProfile/MyProfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,21 +43,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/bhoomikajethwani/2022/fall/webdev/CS5610-Final-Project",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "/Applications/IntelliJ IDEA.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/bhoomikajethwani/2022/fall/webdev/CS5610-Final-Project&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/IntelliJ IDEA.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -59,7 +66,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1670547062241</updated>
-      <workItem from="1670547063520" duration="27319000" />
+      <workItem from="1670547063520" duration="31411000" />
     </task>
     <servers />
   </component>
