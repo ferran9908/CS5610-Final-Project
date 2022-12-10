@@ -4,22 +4,29 @@ import {getAllHouses} from "./houseSlice";
 
 const BASE_URL = `${process.env.REACT_APP_BASE_URL}/booking`
 
-const initialState = {  }
+const initialState = {
+    bookings: [],
+    bookingsBuyer: [],
+    bookingsSeller: []
+}
 
 export const BookingSlice = createSlice({
     name: 'bookings',
+    initialState: initialState,
     reducers: {
-        getAllBookings: () => {
-
+        getAllBookings: (state, action) => {
+            state.bookings = action.payload
+            return state
         },
-        getAllBookingsBuyer: () => {
-
+        getAllBookingsBuyer: (state, action) => {
+            state.bookingsBuyer = action.payload
+            return state
         },
-        getAllBookingsSeller: () => {
-
+        getAllBookingsSeller: (state, action) => {
+            state.bookingsSeller = action.payload
+            return state
         }
     },
-    initialState
 })
 
 export const { getAllBookings, getAllBookingsBuyer, getAllBookingsSeller} = BookingSlice.actions
@@ -62,7 +69,7 @@ export const findAllBookingsSeller = (sid) => {
     }
 }
 
-export const acceptBooking = (payload, bid) => { // TODO when do we pass the payload ?
+export const acceptBooking = (payload, bid) => {
     return async dispatch => {
         await axios.post(`${BASE_URL}/${bid}`, payload)
     }

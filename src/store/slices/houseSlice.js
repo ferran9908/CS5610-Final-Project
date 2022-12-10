@@ -6,7 +6,7 @@ const BASE_URL = `${process.env.REACT_APP_BASE_URL}/house`
 const initialState = {
     currentHouse: null,
     houses: [],
-    loading: true
+    // loading: true
 }
 
 const houseSlice = createSlice(
@@ -32,8 +32,7 @@ export const { getHouse, getAllHouses } = houseSlice.actions
 
 export const createHouse = (payload) => {
     return async dispatch => {
-        const createHouseResponse = await axios.post(`${BASE_URL}/add-house`, payload
-        )
+        const createHouseResponse = await axios.post(`${BASE_URL}/add-house`, payload)
     }
 }
 
