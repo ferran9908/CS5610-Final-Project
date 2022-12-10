@@ -98,6 +98,7 @@ function FavHouse(){
                         <div className="row">
                             <div className="col-8">
                                 <h2 className="card-title">Apartment ABC
+                                    </h2>
 
                             </div>
                             <div className="col-4">

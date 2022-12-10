@@ -7,7 +7,7 @@
   background-color: black;
   margin-left: 20px;
   justify-content: center;
-  top: 100px;
+  /*top: 100px;*/
 }
 
 .centered {
@@ -15,7 +15,6 @@
 }
 
 .heading-main{
-  position: relative;
   display: flex;
   color: whitesmoke;
   font-size: 60px;
