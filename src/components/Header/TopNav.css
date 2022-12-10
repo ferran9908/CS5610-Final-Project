@@ -41,7 +41,6 @@
     font-family: fantasy,cursive;
     font-style: italic;
 
-
 }
 
 h6{
@@ -52,4 +51,33 @@ h6{
     place-items: center;
     margin-top: 15px;
     font-size: large;
+    margin-left: 700px;
+}
+
+
+@media screen and (max-width:720px) {
+    /*CSS code for devices with a maximal width of 720 px - phone*/
+
+    .iconLogo{
+        margin-left: 10px;
+    }
+
+    .navBar {
+        /*// width:100%;*/
+        float: right;
+        /*//margin-bottom: 40px;*/
+        margin-left: -150px;
+        width: 90%;
+        background-color: #A88D79 !important ;
+
+    }
+
+
+    .me-auto {
+        place-items: center;
+        margin-top: 15px;
+        font-size: large;
+        margin-left: 700px;
+        background-color: #A88D79 !important ;
+    }
 }
