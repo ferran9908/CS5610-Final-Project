@@ -1,0 +1,52 @@
+.card-profile {
+    width: 90%;
+    height: 350px;
+    margin-top: 100px;
+    margin-left: 40px;
+    margin-right: 10px;
+    padding: 30px;
+    /*margin: 10px;*/
+    /*padding: 15px;*/
+    font-size: x-large;
+    align-text: center;
+    background: #EFE9E1 !important;
+    font-family: Baskerville;
+    color: black;
+    place-items: center;
+}
+
+.card-profile-edit {
+    width: 50%;
+    height: 350px;
+    margin-top: 100px;
+    margin-left: 40px;
+    margin-right: 10px;
+    padding: 30px;
+    font-size: x-large;
+    align-text: center;
+    background: #EFE9E1 !important;
+    font-family: Baskerville;
+    color: black;
+}
+
+.list-group-item {
+    font-size: large;
+}
+
+.card-title-profile {
+    margin-bottom: 20px;
+}
+
+.edit-profile-btn {
+    width: 50%;
+    margin-left: -10px;
+}
+
+.form-input{
+    /*place-items: center !important;*/
+    width: 15% !important;
+}
+
+.form-input-dd {
+    width: 38% !important;
+}

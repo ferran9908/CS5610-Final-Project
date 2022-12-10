@@ -28,24 +28,31 @@ const Login = () => {
         }
     })
     return (
-        <div className="authbody">
-            <div>
-                <h3>{isSignUp ? 'Sign up' : 'Sign in'}</h3>
-                {isSignUp && <input value={formData.name} onChange={e => setFormData({ ...formData, name: e.target.value })} type="text" className="display-block auth-input w-full mb-3" aria-describedby="nameHelp" placeholder="Enter Name" />}
-                <input value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })} type="email" className="display-block auth-input w-full mb-3" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
-                <input value={formData.password} onChange={e => setFormData({ ...formData, password: e.target.value })} type="password" className="auth-input display-block w-full mb-3" id="exampleInputPassword1" placeholder="Password" />
-                {isSignUp && <div>
-                    <Form.Select onChange={e => setFormData({ ...formData, role: e.target.value })} aria-label="Default select example">
-                        <option value="BUYER" selected>Buyer</option>
-                        <option value="SELLER">Seller</option>
-                        <option value="ADMIN">Admin</option>
-                    </Form.Select>
-                </div>}
-                {authData.error && <p style={{ color: 'red' }}>{authData.error}</p>}
-                <small className='change-signup' onClick={() => setIsSignUp(!isSignUp)}>New to our app? Sign Up!</small>
-                <Button onClick={handleAuth} className="display-block w-full mt-3">{isSignUp ? 'Sign Up!' : 'Sign In!'}</Button>
+
+            <div className="card-body-login centered">
+                <div className="authbody">
+                    <div>
+                        <h1>{isSignUp ? 'Sign Up' : 'Sign In'}</h1>
+                        {isSignUp && <input value={formData.name} onChange={e => setFormData({ ...formData, name: e.target.value })} type="text" className="display-block auth-input w-full mb-3" aria-describedby="nameHelp" placeholder="Enter Name" />}
+                        <input value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })} type="email" className="display-block auth-input w-full mb-3" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" />
+                        <input value={formData.password} onChange={e => setFormData({ ...formData, password: e.target.value })} type="password" className="auth-input display-block w-full mb-3" id="exampleInputPassword1" placeholder="Password" />
+                        {isSignUp && <div>
+                            <Form.Select onChange={e => setFormData({ ...formData, role: e.target.value })} aria-label="Default select example">
+                                <option value="BUYER" selected>Buyer</option>
+                                <option value="SELLER">Seller</option>
+                                <option value="ADMIN">Admin</option>
+                            </Form.Select>
+                        </div>}
+                        {authData.error && <p style={{ color: 'red' }}>{authData.error}</p>}
+                        <small className='change-signup' onClick={() => setIsSignUp(!isSignUp)}>New to our app? Sign Up!</small>
+
+                    </div>
+                </div>
+                <Button onClick={handleAuth} className="display-block login-button">{isSignUp ? 'Sign Up!' : 'Sign In!'}</Button>
             </div>
-        </div>
+
+
+
     )
 }
 

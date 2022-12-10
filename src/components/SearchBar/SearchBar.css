@@ -3,6 +3,7 @@ body{
 }
 .search {
     width: 100%;
+    margin-top: 200px;
     position: relative;
     display: flex;
 }
@@ -26,8 +27,8 @@ body{
 .searchButton {
       width: 40px;
       height: 36px;
-      border: 1px solid #ff385c;
-      background: #ff385c    ;
+      border: 1px solid #A88D79;
+      background: #A88D79    ;
       text-align: center;
       color: #fff;
       border-radius: 0 5px 5px 0;

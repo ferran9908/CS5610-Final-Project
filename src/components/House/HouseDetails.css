@@ -1,28 +1,34 @@
-.body {
-    background: linear-gradient(135deg, whitesmoke 40%, peachpuff);
-}
+
+
 
 .buyerListingbody{
-    padding:70px;
-    margin: 50px;
+    padding:30px;
+    margin: 40px;
     border-radius: 20px;
     /*background: linear-gradient(135deg, whitesmoke 40%, peachpuff);*/
-    background-color: #D1C7BD;
+    background-color: #EFE9E1;
 }
 .listingImage {
     width: 90%;
-    border-radius: 20px;
+    border-radius: 5px;
+    margin-top: 10px;
     border-image-width: 2px;
     border-color: black;
 }
 
 .listingName {
-    padding-top: 50px;
+    padding-top: 30px;
     padding-left: 50px;
     font-size: xxx-large;
+    /*border-radius: 20px;*/
+    margin-left: -30px;
+    margin-right: -5px;
+    margin-bottom: 20px;
+    width : 1520px;
+    /*width: 100%;*/
     font-family: Baskerville;
-    align-content: center;
-    color: whitesmoke;
+    background-color: #D1C7BD;
+    color: #322D29;
 }
 .buyerListingbox1{
     /*background-color: #747267;*/
@@ -61,10 +67,29 @@
 
 
 .backbutton {
-    background: linear-gradient(135deg, #A88D79 40%, #BEA79D);
+    background-color: darkred !important;
     width: 65px;
     height:40px;
     color:white;
     align-content: center;
     margin-left: 100px;
 }
+
+.backbutton:hover{
+
+    border: 5px solid #fff !important;
+    box-shadow: #222 1px 0 10px;
+    text-decoration: underline;
+}
+
+.iconFav {
+    padding-top: 30px;
+    width: 10%;
+    place-content: flex-end;
+}
+
+.list-group-flush-house li{
+    font-size: medium;
+    width: 220%;
+}
+
