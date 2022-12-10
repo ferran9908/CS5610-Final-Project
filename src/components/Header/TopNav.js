@@ -1,7 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import logo from '../../imgs/logo.png';
+// import logo from '../../imgs/logo.png';
 import './TopNav.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
@@ -20,18 +20,18 @@ function TopNav() {
                     {
                         !authData.jwt ? (<Nav className="me-auto">
                             <Nav.Link href="/login">Login / SignUp</Nav.Link>
-                                <Nav.Link className="me-auto" href="#deets">Contact Us</Nav.Link>
-                            </Nav>
+                            <Nav.Link className="me-auto" href="#deets">Contact Us</Nav.Link>
+                        </Nav>
 
                         ) : (<Nav className="me-auto">
                             <Nav.Link href="/profile">Hi, {authData.user.name}</Nav.Link>
                             <Nav.Link href="/home">Home</Nav.Link>
                             <Nav.Link href="/booking">Bookings</Nav.Link>
                             <Nav.Link href="/favourites">Favourites</Nav.Link>
-                        <Nav.Link  href="#deets">SignOut</Nav.Link>
+                            <Nav.Link href="#deets">SignOut</Nav.Link>
                         </Nav>)
                     }
-                    
+
                     {/*<Nav>*/}
                     {/*    <Nav.Link className="me-auto" href="#deets">Contact Us</Nav.Link>*/}
                     {/*</Nav>*/}
