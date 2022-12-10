@@ -1,35 +1,34 @@
 .search-background-img{
   width:100%;
-  height: 540px;
+  height: 100%;
   margin-top: 70px;
   margin-bottom: 70px;
+  opacity: 0.3;
   background-color: black;
   margin-left: 20px;
   justify-content: center;
   top: 100px;
 }
-  .body{
+
+.centered {
+
+}
+
+.heading-main{
+  position: relative;
+  display: flex;
+  color: whitesmoke;
+  font-size: 60px;
+  font-family: Baskerville;
+}
+.body{
     background-color: black;
-  }
-   .login-btn{
-     float: right;
-   }
-   .Signup-btn{
-     float: right;
-   }
-.buybutton {
-  background: linear-gradient(135deg, #f34079 40%, #fc894d);
-  box-sizing: border-box;
-  width: 65px;
-  margin-left: 600px;
 }
-.sellbutton {
-  background: linear-gradient(135deg, #f34079 40%, #fc894d);
-  box-sizing: border-box;
-  width: 65px;
+
+.login-btn{
+     float: right;
 }
-.rentbutton {
-  background: linear-gradient(135deg, #f34079 40%, #fc894d);
-  box-sizing: border-box;
-  width: 65px;
+
+.Signup-btn{
+     float: right;
 }

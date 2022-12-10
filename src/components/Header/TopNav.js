@@ -12,7 +12,7 @@ function TopNav() {
     return (
         <Navbar className="navigationBar" collapseOnSelect expand="lg" variant="dark">
             <Container>
-                <FontAwesomeIcon icon={faHome} size={"2xl"} color={"white"} />
+                <FontAwesomeIcon className="iconLogo" icon={faHome} size={"2xl"} color={"white"} />
                 {/*<img src={logo} className="wd-image-style rounded-circle pt-1" style={{ width: '40px', height: '50px' }} alt={"logo"} />*/}
                 <Navbar.Brand className="headingLogo" href="/">Pillow</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -22,10 +22,13 @@ function TopNav() {
                             <Nav.Link href="/login">Login</Nav.Link>
                         </Nav>) : (<Nav className="me-auto">
                             <Nav.Link href="/profile">Hi, {authData.user.name}</Nav.Link>
+                            <Nav.Link href="/home">Home</Nav.Link>
+                            <Nav.Link href="/booking">Bookings</Nav.Link>
+                            <Nav.Link href="/profile">Favourites</Nav.Link>
                         </Nav>)
                     }
                     <Nav>
-                        <Nav.Link href="#deets">Contact Us</Nav.Link>
+                        <Nav.Link className="me-auto" href="#deets">Contact Us</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

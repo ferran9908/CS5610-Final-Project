@@ -3,6 +3,9 @@
     height: 150px;
  /*padding:10px;*/
 }
+.iconLogo{
+    margin-left: -90px;
+}
 
 .signout{
     background-color: black;
@@ -12,16 +15,15 @@
 .navBar {
     /*// width:100%;*/
     float: right;
-    margin-top: -120px;
     /*//margin-bottom: 40px;*/
     margin-left: -150px;
-    width: 80%
+    width: 90%
 }
 
 
 .navigationBar {
-    margin: 2px;
-    height: 80px;
+    margin: -20px;
+    height: 85px;
     font-size:large;
     background-color: #A88D79;
 }
@@ -32,6 +34,7 @@
 .headingLogo{
 
     margin-top: 20px;
+    margin-left: -1px;
     padding-left: 10px;
     padding-right: 20px;
     align-content: center;
@@ -45,4 +48,8 @@ h6{
     color: white;
 }
 
-
+.me-auto {
+    place-items: center;
+    margin-top: 15px;
+    font-size: large;
+}

@@ -1,0 +1,38 @@
+.card {
+    width: 97%;
+    border-radius: 20%;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    /*margin: 10px;*/
+    /*padding: 15px;*/
+    align-text: center;
+    background: #EFE9E1 !important;
+    font-family: Baskerville;
+    color: black;
+}
+
+.card-img-top {
+    border-radius: 10px;
+    width: 50%;
+    height: 20%;
+    padding: 7%;
+}
+
+.btn-primary {
+    background-color: darkred !important;
+    margin-top: 10px;
+    margin-left: 300px;
+    /*padding-left: 40px;*/
+}
+
+.btn-primary:hover, .btn-primary:focus {
+
+    border: 5px solid #fff !important;
+    box-shadow: #222 1px 0 10px;
+    text-decoration: underline;
+}
+
+.card-title{
+   align-content: center;
+}
