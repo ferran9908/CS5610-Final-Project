@@ -36,3 +36,14 @@
 .card-title{
    align-content: center;
 }
+
+@media screen and (max-width:720px) {
+    /*CSS code for devices with a maximal width of 720 px - phone*/
+
+    .btn-primary {
+        background-color: darkred !important;
+        margin-top: 10px;
+        margin-left: 30px;
+        /*padding-left: 40px;*/
+    }
+}
