@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
-import {getAllHouses} from "./houseSlice";
+import { getAllHouses } from "./houseSlice";
 
 const BASE_URL = `${process.env.REACT_APP_BASE_URL}/booking`
 
@@ -29,7 +29,7 @@ export const BookingSlice = createSlice({
     },
 })
 
-export const { getAllBookings, getAllBookingsBuyer, getAllBookingsSeller} = BookingSlice.actions
+export const { getAllBookings, getAllBookingsBuyer, getAllBookingsSeller } = BookingSlice.actions
 
 export default BookingSlice.reducer
 
@@ -45,27 +45,39 @@ export const deleteBooking = (bid) => {
     }
 }
 
-export const findAllBookings = () => {
+export const findAllBookings = ({ jwt }) => {
     return async dispatch => {
-        const findBookings = await axios.get(`${BASE_URL}/find-all`)
+        const findBookings = await axios.get(`${BASE_URL}/find-all`, {
+            headers: {
+                'Authorization': `Bearer ${jwt}`
+            }
+        })
         const bookings = findBookings.data
         dispatch(getAllBookings(bookings))
     }
 }
 
-export const findAllBookingsBuyer = (bid) => {
+export const findAllBookingsBuyer = ({ bid, jwt }) => {
     return async dispatch => {
-        const findBookingsBuyer = await axios.get(`${BASE_URL}/find-all-buyer/${bid}`)
+        const findBookingsBuyer = await axios.get(`${BASE_URL}/find-all-buyer/${bid}`, {
+            headers: {
+                'Authorization': `Bearer ${jwt}`
+            }
+        })
         const bookings = findBookingsBuyer.data
-        dispatch(getAllBookingsBuyer(bookings))
+        dispatch(getAllBookings(bookings))
     }
 }
 
-export const findAllBookingsSeller = (sid) => {
+export const findAllBookingsSeller = ({ sid, jwt }) => {
     return async dispatch => {
-        const findBookingsSeller = await axios.get(`${BASE_URL}/find-all-seller/${sid}`)
+        const findBookingsSeller = await axios.get(`${BASE_URL}/find-all-seller/${sid}`, {
+            headers: {
+                'Authorization': `Bearer ${jwt}`
+            }
+        })
         const bookings = findBookingsSeller.data
-        dispatch(getAllBookingsSeller(bookings))
+        dispatch(getAllBookings(bookings))
     }
 }
 

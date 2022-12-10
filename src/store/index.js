@@ -4,6 +4,7 @@ import { persistReducer } from 'redux-persist';
 import AuthReducer from './slices/authSlice'
 import ProfileReducer from './slices/profileSlice'
 import HouseReducer from './slices/houseSlice'
+import BookingReducer from './slices/bookingSlice'
 
 const persistConfig = {
   key: 'root',
@@ -13,7 +14,8 @@ const persistConfig = {
 const reducers = combineReducers({
   auth: AuthReducer,
   profile: ProfileReducer,
-  houses: HouseReducer
+  houses: HouseReducer,
+  bookings: BookingReducer
 });
 
 const persistedReducer = persistReducer(persistConfig, reducers);
