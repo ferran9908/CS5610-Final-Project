@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faHome} from "@fortawesome/free-solid-svg-icons";
 
 function HouseCard() {
+    
     return(
         <div>
 
@@ -37,13 +38,7 @@ function HouseCard() {
 
                 </div>
             </div>
-
-            <Link to='/buyerViewListing'>
-                <button variant='outline-dark' className='backbutton'>
-                    Back
-                </button>
-
-            </Link>
+            
             <div>
 
             </div>
