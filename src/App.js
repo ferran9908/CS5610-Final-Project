@@ -7,7 +7,7 @@ import Profile from "./components/Profile/Profile";
 import TopNav from "./components/Header/TopNav";
 import HouseDetails from "./components/House/HouseDetails";
 import MyProfile from "./components/MyProfile/MyProfile";
-
+import SellerBookings from "./components/Booking/SellerBookings"
 function App() {
   return (
     <BrowserRouter>
@@ -23,6 +23,8 @@ function App() {
           <Route path="/profile" element={<MyProfile />} />
           <Route path="/profile/:id" element={<Profile />} />
           <Route path="/house/:id" element={<HouseDetails />} />
+          <Route path="/booking" element={<SellerBookings />} />
+
         </Routes>
       </div>
     </BrowserRouter>
