@@ -24,7 +24,7 @@ function TopNav() {
                             <Nav.Link href="/profile">Hi, {authData.user.name}</Nav.Link>
                             <Nav.Link href="/home">Home</Nav.Link>
                             <Nav.Link href="/booking">Bookings</Nav.Link>
-                            <Nav.Link href="/profile">Favourites</Nav.Link>
+                            <Nav.Link href="/favourites">Favourites</Nav.Link>
                         </Nav>)
                     }
                     <Nav>
