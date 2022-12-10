@@ -1,7 +1,7 @@
 import "./SellerBookings.css"
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { findAllBookings, findAllBookingsSeller } from "../../store/slices/bookingSlice";
+import { acceptBooking, findAllBookings, findAllBookingsSeller } from "../../store/slices/bookingSlice";
 
 function SellerBookings() {
     const authData = useSelector(state => state.auth)
@@ -19,7 +19,7 @@ function SellerBookings() {
     return (
         <div className="row row-cols-1 row-cols-md-3 g-4">
 
-            {listings && listings.length && listings.map(listing => (<div class="col">
+            {listings && listings.length && listings.map((listing, idx) => (<div className="col" key={idx}>
                 <div className="card " >
                     <img className="card-img-top"
                         src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
@@ -33,7 +33,17 @@ function SellerBookings() {
                             <li className="list-group-item">Time: {listing.time}</li>
                         </ul>
 
-                        <button href="#" className="btn btn-primary">Edit Booking</button>
+                        {
+                            authData && authData.user.role === 'SELLER' && (
+
+                                !listing.isAccepted ? (<div className="flex flex-row">
+                                    <button onClick={() => {
+                                        dispatch(acceptBooking({ id: listing._id, jwt: authData.jwt, sid: authData.user._id }))
+                                    }} className="btn btn-primary">Accept</button>
+                                    {/* <button href="#" className="btn btn-primary">Not Sold</button> */}
+                                </div>) : ((<p>House sold!</p>))
+                            )
+                        }
                     </div>
                 </div>
             </div>))
