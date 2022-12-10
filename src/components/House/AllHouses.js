@@ -1,19 +1,25 @@
-import HouseCard from "./HouseCard"
-import {useEffect} from "react";
 
-function AllHouses() {
-    
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { findAllHouses } from '../../store/slices/houseSlice'
+import HouseCard from './HouseCard'
+
+const AllHouses = () => {
     const dispatch = useDispatch()
-    const allHouses = useSelector(state => state.houses.currentHouse)
+    const houses = useSelector(state => state.houses.houses)
     useEffect(() => {
-        dispatch(findHouse(id))
+        dispatch(findAllHouses())
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-    
     return (
         <div>
-            <HouseCard></HouseCard>
+            {houses && houses.map(house => <Link to={`/house/${house._id}`} style={{ textDecoration: 'none' }}>
+                <HouseCard name={house.name} streetAddress={house.streetAddress} price={house.price} description={house.description} />
+            </Link>)}
         </div>
     )
 }
-export default AllHouses;
+
+export default AllHouses
+

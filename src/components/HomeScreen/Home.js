@@ -4,17 +4,19 @@ import './HomeScreen.css'
 import AllHouses from "../House/AllHouses.js"
 import React from "react"
 import { Container } from "react-bootstrap"
+import AllHouses from "../House/AllHouses";
 
 function Home() {
-    return(
+    return (
+        <div>
+            <img src={bg} className="search-background-img" />
+            <SearchBar></SearchBar>
             <div>
-                <img src={bg} className="search-background-img"/>
-                <SearchBar></SearchBar>
-                <div>
-                    <AllHouses></AllHouses>
-                </div>
+
+                <AllHouses />
             </div>
-        
+        </div>
+
 
     )
 }

@@ -13,12 +13,11 @@ const houseSlice = createSlice(
     {
         name: 'houses',
         initialState: initialState,
-        reducers:{
+        reducers: {
             getHouse: (state, action) => {
                 state.currentHouse = action.payload;
                 return state
             },
-
             getAllHouses: (state, action) => {
                 state.houses = action.payload;
                 return state
