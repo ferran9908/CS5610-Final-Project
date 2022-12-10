@@ -19,17 +19,22 @@ function TopNav() {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     {
                         !authData.jwt ? (<Nav className="me-auto">
-                            <Nav.Link href="/login">Login</Nav.Link>
-                        </Nav>) : (<Nav className="me-auto">
+                            <Nav.Link href="/login">Login / SignUp</Nav.Link>
+                                <Nav.Link className="me-auto" href="#deets">Contact Us</Nav.Link>
+                            </Nav>
+
+                        ) : (<Nav className="me-auto">
                             <Nav.Link href="/profile">Hi, {authData.user.name}</Nav.Link>
                             <Nav.Link href="/home">Home</Nav.Link>
                             <Nav.Link href="/booking">Bookings</Nav.Link>
                             <Nav.Link href="/favourites">Favourites</Nav.Link>
+                        <Nav.Link  href="#deets">SignOut</Nav.Link>
                         </Nav>)
                     }
-                    <Nav>
-                        <Nav.Link className="me-auto" href="#deets">Contact Us</Nav.Link>
-                    </Nav>
+                    
+                    {/*<Nav>*/}
+                    {/*    <Nav.Link className="me-auto" href="#deets">Contact Us</Nav.Link>*/}
+                    {/*</Nav>*/}
                 </Navbar.Collapse>
             </Container>
         </Navbar>
