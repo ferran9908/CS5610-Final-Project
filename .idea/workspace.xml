@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0838aaf-6a47-47a8-9efe-9ddbda0a1261" name="Changes" comment="" />
+    <list default="true" id="a0838aaf-6a47-47a8-9efe-9ddbda0a1261" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/House/HouseCard.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/House/HouseCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/TopNav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/TopNav.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomeScreen/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomeScreen/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HomeScreen/HomeScreen.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomeScreen/HomeScreen.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/House/HouseDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/House/HouseDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MyProfile/MyProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MyProfile/MyProfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,7 +54,8 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/IntelliJ IDEA.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external&quot;
   }
 }</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
