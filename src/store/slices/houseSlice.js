@@ -20,7 +20,7 @@ const houseSlice = createSlice(
             getAllHouses: (state, action) => {
                 state.houses = action.payload;
                 return state
-            }
+            },
         }
     }
 )
@@ -66,5 +66,15 @@ export const deleteHouse = (hid) => {
     return async dispatch => {
         await axios.delete(`${BASE_URL}/${hid}`)
     }
+}
+
+export const updateHouse = ({hid, jwt, payload}) => {
+    return async dispatch => {
+         await axios.put(`${BASE_URL}/edit-house/${hid}`,  payload, {
+            headers: {
+                'Authorization': `Bearer ${jwt}`
+            }
+        })
+        dispatch(findHouse(hid))
 }
 
