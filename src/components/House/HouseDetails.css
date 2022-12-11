@@ -108,5 +108,13 @@
         width: 100%;
         /*padding: 20px;*/
     }
+
+    .btn-primary {
+        width: 50%;
+        background-color: darkred !important;
+        margin-top: 10px;
+        margin-left: 50px;
+        /*padding-left: 40px;*/
+    }
 }
 

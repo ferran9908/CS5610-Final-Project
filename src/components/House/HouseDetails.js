@@ -4,13 +4,12 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { Link, useNavigate, useParams,  } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee, faHome, faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteHouse, findHouse } from "../../store/slices/houseSlice";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
-import DatePicker from "react-datepicker";
 
 function HouseDetails () {
     const { id } = useParams()
