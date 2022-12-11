@@ -1,0 +1,40 @@
+.card-profile-userID{
+    width: 90%;
+    height: 300px;
+    margin-top: 100px;
+    margin-left: 40px;
+    margin-right: 10px;
+    padding: 30px;
+    /*margin: 10px;*/
+    /*padding: 15px;*/
+    font-size: x-large;
+    align-text: center;
+    background: #EFE9E1 !important;
+    font-family: Baskerville;
+    color: black;
+    place-items: center;
+
+}
+.card-profilecard-userID {
+    width: 90%;
+
+    margin-top: 100px;
+    margin-left: 40px;
+    margin-right: 10px;
+    padding: 30px;
+    /*margin: 10px;*/
+    /*padding: 15px;*/
+    font-size: x-large;
+    align-text: center;
+    background: #EFE9E1 !important;
+    font-family: Baskerville;
+    color: black;
+    place-items: center;
+}
+.card-title-userID {
+    align-content: center;
+    background-color: #D1C7BD;
+    color: #322D29;
+    width: 100%;
+    padding: 20px;
+}

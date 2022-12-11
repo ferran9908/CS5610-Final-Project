@@ -54,7 +54,7 @@ const MyProfile = () => {
                         <option value="SELLER">Seller</option>
                         <option value="ADMIN">Admin</option>
                     </Form.Select>
-                    <Button className="edit-profile-btn"  onClick={() => {
+                    <Button className="update-profile-btn"  onClick={() => {
                         handleEditProfile()
                     }}>Update Profile</Button>
                 </div>

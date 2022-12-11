@@ -11,6 +11,7 @@ function HouseDetails() {
     const { id } = useParams()
     const dispatch = useDispatch()
     const currentHouse = useSelector(state => state.houses.currentHouse)
+    const user = useSelector(state => state.auth.user)
     useEffect(() => {
         dispatch(findHouse(id))
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -34,9 +35,33 @@ function HouseDetails() {
                         />
                         <div className="row houses-fav-book">
                             {/**/}
-                            <div className="col-6">
-                                <button href="#" className="btn btn-primary">Book</button>
-                            </div>
+                            {
+                                user.role == 'BUYER' && 
+                                <Link>
+                                    <div className="col-6">
+                                        //Todo - Add
+                                        <button href="#" className="btn btn-primary">Book</button>
+                                    </div>
+                                </Link>
+                                
+
+                            }
+                            {
+                                user.role == 'SELLER' &&
+                                <Link to={"/addHouse"} state={{currentHouse}}>
+                                    <div className="col-6">
+                                        <button  className="btn btn-primary">Edit</button>
+                                    </div>
+                                </Link>
+
+                            }
+                            {
+                                user.role == 'ADMIN' && <div className="col-6">
+                                    <button href="#" className="btn btn-primary">Delete</button>
+                                </div>
+                            }
+
+
 
                         </div>
 

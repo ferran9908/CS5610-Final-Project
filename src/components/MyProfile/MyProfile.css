@@ -16,7 +16,7 @@
 }
 
 .card-profile-edit {
-    width: 50%;
+    width: 30%;
     height: 350px;
     margin-top: 100px;
     margin-left: 40px;
@@ -38,9 +38,15 @@
 }
 
 .edit-profile-btn {
+    width: 20%;
+    margin-left: -10px;
+}
+
+.update-profile-btn {
     width: 50%;
     margin-left: -10px;
 }
+
 
 .form-input{
     /*place-items: center !important;*/
@@ -49,4 +55,34 @@
 
 .form-input-dd {
     width: 38% !important;
+}
+
+@media screen and (max-width:720px) {
+    .card-profile-edit {
+        width: 90%;
+        height: 350px;
+        margin-top: 100px;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding: 30px;
+        font-size: x-large;
+        align-text: center;
+        background: #EFE9E1 !important;
+        font-family: Baskerville;
+        color: black;
+    }
+
+    .form-input{
+        /*place-items: center !important;*/
+        width: 5% !important;
+    }
+
+    .edit-profile-btn {
+        width: 90%;
+    }
+
+    .update-profile-btn {
+        width: 90%;
+        /*margin-left: -10px;*/
+    }
 }
