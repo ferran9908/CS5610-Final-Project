@@ -34,7 +34,21 @@
 .card-title-userID {
     align-content: center;
     background-color: #D1C7BD;
+    margin-top: 10px;
     color: #322D29;
     width: 100%;
-    padding: 20px;
+    padding: 5px;
+}
+
+
+@media screen and (max-width:720px) {
+    /*CSS code for devices with a maximal width of 720 px - phone*/
+
+    .btn-primary {
+        width: 100%;
+        background-color: darkred !important;
+        margin-top: 10px;
+
+        /*padding-left: 40px;*/
+    }
 }

@@ -21,12 +21,9 @@ const AllUsers = () => {
 
     return (
         <div className="card-profilecard-userID">
+
             <div className='card-title-userID' style={{ display: 'flex' }}>
-                <div className="">
-                    <button onClick={() => {
-                        navigateTo("/")
-                    }} className="btn btn-primary">Back</button>
-                </div>
+
                 <h2 className="card-title-userID">
                     User Profiles</h2>
             </div>
@@ -34,6 +31,12 @@ const AllUsers = () => {
                 {users && users.filter(userEl => userEl._id !== userData._id).map((user) =>
                     <ProfileCard key={user._id} id={user._id} name={user.name} role={user.role} />
                 )}
+            </div>
+
+            <div className="">
+                <button onClick={() => {
+                    navigateTo("/")
+                }} className="btn btn-primary">Back</button>
             </div>
 
 
