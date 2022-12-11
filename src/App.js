@@ -12,6 +12,7 @@ import FavHouse from "./components/House/FavHouse";
 import GenericProtectedRoute from "./routes/GenericProtectedRoute";
 import Houses from "./components/Houses/Houses";
 import AddHouse from "./components/House/AddHouse"
+import AllUsers from "./components/Profile/AllUsers"
 function App() {
   return (
     <BrowserRouter>
@@ -33,6 +34,7 @@ function App() {
           <Route path="/profile/:id" element={<Profile />} />
           <Route path="/house/:id" element={<HouseDetails />} />
           <Route path="/addHouse" element={<AddHouse />}/>
+          <Route path="/userList" element={<AllUsers />}/>
         </Routes>
       </div>
     </BrowserRouter>

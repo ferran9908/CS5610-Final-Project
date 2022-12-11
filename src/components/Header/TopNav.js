@@ -42,7 +42,7 @@ function TopNav() {
                                 </div>
                             }
                             {authData && authData.user.role === 'ADMIN' && <div className='navbar-flex'>
-                                <Nav.Link href="/">User List</Nav.Link>
+                                <Nav.Link href="/userList">User List</Nav.Link>
                             </div>}
                             <Nav.Link href="/">Advanced Search</Nav.Link>
                             <Nav.Link onClick={() => {

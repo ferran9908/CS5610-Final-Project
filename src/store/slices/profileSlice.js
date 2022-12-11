@@ -4,10 +4,11 @@ import { getCurrentUserData } from './authSlice'
 
 const BASE_URL = `${process.env.REACT_APP_BASE_URL}`
 
-const initialState = { profile: null, error: null }
+const initialState = { profile: null, error: null, profiles: [] }
 
 export const ProfileSlice = createSlice({
     name: 'profile',
+    initialState: initialState,
     reducers: {
         setError: (state, action) => {
             state.error = action.payload
@@ -16,12 +17,16 @@ export const ProfileSlice = createSlice({
         setProfile: (state, action) => {
             state.profile = action.payload
             return state
+        },
+        getAllProfiles: (state, action) => {
+            state.profiles = action.payload;
+            return state
         }
     },
     initialState
 })
 
-export const { setError, setProfile } = ProfileSlice.actions
+export const { setError, setProfile,getAllProfiles } = ProfileSlice.actions
 
 export default ProfileSlice.reducer
 
@@ -48,3 +53,17 @@ export const editProfile = ({ name, email, role, jwt }) => async dispatch => {
     }
 
 }
+
+export const findAllProfiles = (jwt) => {
+    return async dispatch => {
+        const findAllProfiles = await axios.get(`${BASE_URL}/user/get-all-users`,{
+            headers: {
+            'Authorization': `Bearer ${jwt}`
+        }
+    })
+        const profiles = findAllProfiles.data
+        console.log(profiles)
+        dispatch(getAllProfiles(profiles))
+    }
+}
+
