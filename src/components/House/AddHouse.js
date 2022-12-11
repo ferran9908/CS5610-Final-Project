@@ -5,13 +5,14 @@ import axios from "axios"
 import { useDispatch, useSelector } from "react-redux"
 import { createHouse, updateHouse } from "../../store/slices/houseSlice"
 import { useNavigate } from "react-router"
-import {useLocation} from "react-router-dom"
+import { useLocation } from "react-router-dom"
 
 const BASE_URL = `${process.env.REACT_APP_BASE_URL}`
 
 function AddHouse() {
     const dispatch = useDispatch()
     const jwt = useSelector(state => state.auth.jwt)
+    const user = useSelector(state => state.auth.user)
 
     const navigateTo = useNavigate()
 
@@ -20,7 +21,7 @@ function AddHouse() {
     const [formData, setFormData] = useState({
         name: '', streetAddress: '', unit: '', city: '',
         states: '', phonenumber: '', zipcode: '', price: '', beds: '', baths: '', homeType: '', squareFeet: '',
-        year: '', description: '', lat: '', lng: '', sellerEmailId: '', images: []
+        year: '', description: '', lat: '', lng: '', sellerEmailId: user.email, images: []
     })
 
     const [images, setImages] = useState([])
@@ -36,13 +37,13 @@ function AddHouse() {
         setImages(e.target.files)
     }
     useEffect(() => {
-        if (location.state && location.state.currentHouse){
-            console.log({cHouse: location.state.currentHouse})
-            setFormData(location.state.currentHouse)
+        if (location.state && location.state.currentHouse) {
+            console.log({ cHouse: location.state.currentHouse })
+            setFormData({ ...location.state.currentHouse, sellerEmailId: user.email })
             setIsEdit(true)
         }
 
-    },[])
+    }, [])
 
     const imageUploadHandler = async (e) => {
         e.preventDefault()
@@ -73,11 +74,12 @@ function AddHouse() {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        if(!isEdit){
+        if (!isEdit) {
             dispatch(createHouse({ payload: formData, jwt }))
-            navigateTo("/")}
+            navigateTo("/")
+        }
         else {
-            dispatch(updateHouse({payload: formData, jwt, hid: location.state.currentHouse._id }))
+            dispatch(updateHouse({ payload: formData, jwt, hid: location.state.currentHouse._id }))
             navigateTo(-1)
         }
 
@@ -109,7 +111,7 @@ function AddHouse() {
                             <div className="mb-3">
                                 <label htmlFor="" className="form-label">Unit</label>
 
-                                <input name="unit"  value={formData.unit} onChange={handleChange} type="text" className="form-control" id="" placeholder="Enter House Number" />
+                                <input name="unit" value={formData.unit} onChange={handleChange} type="text" className="form-control" id="" placeholder="Enter House Number" />
 
                             </div>
                         </div>
@@ -119,7 +121,7 @@ function AddHouse() {
                         <div className="col-4" >
                             <div className="mb-3">
                                 <label htmlFor="" className="form-label">City</label>
-                                <input name="city"  value={formData.city} onChange={handleChange} type="text" className="form-control" id="" placeholder="Enter City" />
+                                <input name="city" value={formData.city} onChange={handleChange} type="text" className="form-control" id="" placeholder="Enter City" />
 
                             </div>
                         </div>
@@ -127,7 +129,7 @@ function AddHouse() {
                             <div className="mb-3">
                                 <label htmlFor="" className="form-label">State</label>
 
-                                <input name="states"  value={formData.states} onChange={handleChange} type="text" className="form-control" id="" placeholder="Enter State" />
+                                <input name="states" value={formData.states} onChange={handleChange} type="text" className="form-control" id="" placeholder="Enter State" />
 
 
                             </div>
@@ -136,7 +138,7 @@ function AddHouse() {
                             <div className="mb-3">
                                 <label htmlFor="" className="form-label">Zip Code</label>
 
-                                <input name="zipcode"  value={formData.zipcode} onChange={handleChange} type="text" className="form-control" id="" placeholder="Enter Zip Code" />
+                                <input name="zipcode" value={formData.zipcode} onChange={handleChange} type="text" className="form-control" id="" placeholder="Enter Zip Code" />
 
 
                             </div>
@@ -148,7 +150,7 @@ function AddHouse() {
                             <div className="mb-3">
                                 <label htmlFor="" className="form-label">Beds</label>
 
-                                <input name="beds"  value={formData.beds} onChange={handleChange} type="number" className="form-control" id="" placeholder="Enter number of Bedrooms" />
+                                <input name="beds" value={formData.beds} onChange={handleChange} type="number" className="form-control" id="" placeholder="Enter number of Bedrooms" />
 
                             </div>
                         </div>
@@ -156,7 +158,7 @@ function AddHouse() {
                             <div className="mb-3">
                                 <label htmlFor="" className="form-label">Baths</label>
 
-                                <input name="baths"  value={formData.baths} onChange={handleChange} type="number" className="form-control" id="" placeholder="Enter number of Bathrooms" />
+                                <input name="baths" value={formData.baths} onChange={handleChange} type="number" className="form-control" id="" placeholder="Enter number of Bathrooms" />
 
 
                             </div>
@@ -165,7 +167,7 @@ function AddHouse() {
                             <div className="mb-3">
                                 <label htmlFor="" className="form-label">Home Type</label>
 
-                                <input name="homeType"  value={formData.homeType} onChange={handleChange} type="text" className="form-control" id="" placeholder="Enter Type" />
+                                <input name="homeType" value={formData.homeType} onChange={handleChange} type="text" className="form-control" id="" placeholder="Enter Type" />
 
 
                             </div>
@@ -175,7 +177,7 @@ function AddHouse() {
                             <div className="mb-3">
                                 <label htmlFor="" className="form-label">Square Feet</label>
 
-                                <input name="squareFeet"  value={formData.squareFeet} onChange={handleChange} type="text" className="form-control" id="" placeholder="Enter Sq. feet" />
+                                <input name="squareFeet" value={formData.squareFeet} onChange={handleChange} type="text" className="form-control" id="" placeholder="Enter Sq. feet" />
 
 
                             </div>
@@ -187,7 +189,7 @@ function AddHouse() {
                             <div className="mb-3">
                                 <label htmlFor="" className="form-label">Latitude</label>
 
-                                <input name="lat"  value={formData.lat} onChange={handleChange} type="number" className="form-control" id="" placeholder="Enter Latitude Cordinate" />
+                                <input name="lat" value={formData.lat} onChange={handleChange} type="number" className="form-control" id="" placeholder="Enter Latitude Cordinate" />
 
                             </div>
                         </div>
@@ -195,7 +197,7 @@ function AddHouse() {
                             <div className="mb-3">
                                 <label htmlFor="" className="form-label">Longitude</label>
 
-                                <input name="lng"  value={formData.lng} onChange={handleChange} type="number" className="form-control" id="" placeholder="Enter Longitude Cordinate" />
+                                <input name="lng" value={formData.lng} onChange={handleChange} type="number" className="form-control" id="" placeholder="Enter Longitude Cordinate" />
 
 
                             </div>
@@ -204,7 +206,7 @@ function AddHouse() {
                             <div className="mb-3">
                                 <label htmlFor="" className="form-label">Year Built/ Renovated</label>
 
-                                <input name="year"  value={formData.year} onChange={handleChange} type="number" className="form-control" id="" placeholder="Enter the year built" />
+                                <input name="year" value={formData.year} onChange={handleChange} type="number" className="form-control" id="" placeholder="Enter the year built" />
 
 
                             </div>
@@ -212,7 +214,7 @@ function AddHouse() {
                         <div className="col-3" >
                             <div className="mb-3">
                                 <label htmlFor="" className="form-label">Contact Number</label>
-                     <input name="phonenumber"  value={formData.phonenumber} onChange={handleChange} type="text" className="form-control" id="" placeholder="Enter Phone No." />
+                                <input name="phonenumber" value={formData.phonenumber} onChange={handleChange} type="text" className="form-control" id="" placeholder="Enter Phone No." />
 
                             </div>
                         </div>
@@ -222,24 +224,24 @@ function AddHouse() {
                         <div className={"col-7"}>
                             <div className="mb-3">
                                 <label htmlFor="" className="form-label">Contact Email ID</label>
-                  <input name="sellerEmailId"  value={formData.sellerEmailId}  onChange={handleChange} type="email" className="form-control" id="" placeholder="Enter Seller's contact Details" />
+                                <input name="sellerEmailId" disabled value={formData.sellerEmailId} onChange={handleChange} type="email" className="form-control" id="" placeholder="Enter Seller's contact Details" />
 
                             </div>
                         </div>
                         <div className="col-5" >
                             <div className="mb-3">
                                 <label htmlFor="" className="form-label">Price ($) </label>
-                                <input name="price"  value={formData.price} onChange={handleChange} type="number" className="form-control" id="" placeholder="Enter the price in Dollars" />
+                                <input name="price" value={formData.price} onChange={handleChange} type="number" className="form-control" id="" placeholder="Enter the price in Dollars" />
 
                             </div>
                         </div>
                     </div>
                     <div className="form-group">
                         <label htmlFor="">Description</label>
-                        <textarea name="description"  value={formData.description}  onChange={handleChange} className="form-control" id="" rows="3" placeholder="Enter House Details"></textarea>
+                        <textarea name="description" value={formData.description} onChange={handleChange} className="form-control" id="" rows="3" placeholder="Enter House Details"></textarea>
                     </div>
                     <div>
-                        <input type="file" class="form-control" multiple name="file" onChange={imageAddHandler} />
+                        <input type="file" className="form-control" multiple name="file" onChange={imageAddHandler} />
                         <div>
                             <button onClick={imageUploadHandler}>Upload</button>
                         </div>

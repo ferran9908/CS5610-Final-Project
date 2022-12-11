@@ -9,10 +9,14 @@ const Houses = () => {
     const authData = useSelector(state => state.auth)
     const houses = useSelector(state => state.houses.houses)
     useEffect(() => {
-        if (authData.user.role === "SELLER")
+        if (authData.user.role === "SELLER") {
+            console.log("HELLO")
             dispatch(findSellerHouses({ jwt: authData.jwt, email: authData.user.email }))
-        else
+        }
+        else {
+
             dispatch(findAllHouses())
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     return (

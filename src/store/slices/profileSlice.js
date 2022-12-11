@@ -8,7 +8,7 @@ const initialState = { profile: null, error: null, profiles: [] }
 
 export const ProfileSlice = createSlice({
     name: 'profile',
-    initialState: initialState,
+    initialState,
     reducers: {
         setError: (state, action) => {
             state.error = action.payload
@@ -23,10 +23,9 @@ export const ProfileSlice = createSlice({
             return state
         }
     },
-    initialState
 })
 
-export const { setError, setProfile,getAllProfiles } = ProfileSlice.actions
+export const { setError, setProfile, getAllProfiles } = ProfileSlice.actions
 
 export default ProfileSlice.reducer
 
@@ -56,14 +55,29 @@ export const editProfile = ({ name, email, role, jwt }) => async dispatch => {
 
 export const findAllProfiles = (jwt) => {
     return async dispatch => {
-        const findAllProfiles = await axios.get(`${BASE_URL}/user/get-all-users`,{
+        const findAllProfiles = await axios.get(`${BASE_URL}/user/get-all-users`, {
             headers: {
-            'Authorization': `Bearer ${jwt}`
-        }
-    })
+                'Authorization': `Bearer ${jwt}`
+            }
+        })
         const profiles = findAllProfiles.data
-        console.log(profiles)
         dispatch(getAllProfiles(profiles))
+    }
+}
+
+export const deleteUserFromDb = ({ jwt, userId }) => {
+    return async dispatch => {
+        try {
+            const response = await axios.delete(`${BASE_URL}/user/remove-user?id=${userId}`, {
+                headers: {
+                    'Authorization': `Bearer ${jwt}`
+                }
+            })
+            console.log({ response })
+            dispatch(findAllProfiles(jwt))
+        } catch (e) {
+            console.error({ error: e })
+        }
     }
 }
 

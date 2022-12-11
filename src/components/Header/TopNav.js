@@ -17,12 +17,12 @@ function TopNav() {
                 <FontAwesomeIcon className="iconLogo" icon={faHome} size={"2xl"} color={"white"} />
                 {/*<img src={logo} className="wd-image-style rounded-circle pt-1" style={{ width: '40px', height: '50px' }} alt={"logo"} />*/}
                 <Navbar.Brand className="headingLogo" href="/">Pillow</Navbar.Brand>
-                <Navbar.Toggle classname="hamburger-menu" aria-controls="responsive-navbar-nav" />
-                <Navbar.Collapse classname="hamburger-menu" id="responsive-navbar-nav">
+                <Navbar.Toggle className="hamburger-menu" aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse className="hamburger-menu" id="responsive-navbar-nav">
                     {
                         !authData.jwt ? (<Nav className="me-auto">
                             <Nav.Link href="/login">Login / SignUp</Nav.Link>
-                            </Nav>
+                        </Nav>
 
 
                         ) : (<Nav className="me-auto">

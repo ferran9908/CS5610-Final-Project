@@ -8,7 +8,7 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 function FavHouse() {
     return (
         <div className="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col">
+            <div className="col">
                 <div className="card " >
                     <img className="card-img-top"
                         src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"

@@ -62,23 +62,29 @@ export const findSellerHouses = ({ jwt, email }) => {
             }
         })
         const houses = findSellerHouses.data
+        console.log({ houses })
         dispatch(getAllHouses(houses))
     }
 }
 
-export const deleteHouse = (hid) => {
-    return async dispatch => {
-        await axios.delete(`${BASE_URL}/${hid}`)
+export const deleteHouse = ({ hid, jwt }) => {
+    return async () => {
+        await axios.delete(`${BASE_URL}/${hid}`, {
+            headers: {
+                'Authorization': `Bearer ${jwt}`
+            }
+        })
     }
 }
 
-export const updateHouse = ({hid, jwt, payload}) => {
+export const updateHouse = ({ hid, jwt, payload }) => {
     return async dispatch => {
-         await axios.put(`${BASE_URL}/edit-house/${hid}`,  payload, {
+        await axios.put(`${BASE_URL}/edit-house/${hid}`, payload, {
             headers: {
                 'Authorization': `Bearer ${jwt}`
             }
         })
         dispatch(findHouse(hid))
-}}
+    }
+}
 
