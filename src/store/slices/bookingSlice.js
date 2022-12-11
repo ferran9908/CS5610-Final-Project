@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
-import { getAllHouses } from "./houseSlice";
 
 const BASE_URL = `${process.env.REACT_APP_BASE_URL}/booking`
 
@@ -34,14 +33,14 @@ export const { getAllBookings, getAllBookingsBuyer, getAllBookingsSeller } = Boo
 export default BookingSlice.reducer
 
 export const createBooking = (payload) => {
-    return async dispatch => {
-        const createBookingResponse = await axios.post(`${BASE_URL}/book-tour`, payload)
+    return async () => {
+        await axios.post(`${BASE_URL}/book-tour`, payload)
     }
 }
 
 export const deleteBooking = (bid) => {
-    return async dispatch => {
-        const deleteBooking = await axios.delete(`${BASE_URL}/${bid}`)
+    return async () => {
+        await axios.delete(`${BASE_URL}/${bid}`)
     }
 }
 

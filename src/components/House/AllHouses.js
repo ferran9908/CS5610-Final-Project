@@ -14,9 +14,9 @@ const AllHouses = () => {
     }, [])
     return (
         <div>
-            {houses && houses.map(house => <a className="houseLink" href={`/house/${house._id}`} style={{ textDecoration: 'none' }}>
+            {houses && houses.map(house => <Link className="houseLink" href={`/house/${house._id}`} style={{ textDecoration: 'none' }}>
                 <HouseCard name={house.name} streetAddress={house.streetAddress} price={house.price} description={house.description} />
-            </a>)}
+            </Link>)}
         </div>
     )
 }
