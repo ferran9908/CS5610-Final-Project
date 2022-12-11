@@ -1,0 +1,14 @@
+.card-message {
+    width: 95%;
+    margin-top: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+    /*margin: 10px;*/
+    border-radius: 5px;
+    padding: 30px;
+    /* align-text: center; */
+    background: #EFE9E1 !important;
+    font-size: xx-large;
+    font-family: Baskerville;
+    color: black;
+}

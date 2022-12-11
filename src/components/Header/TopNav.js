@@ -12,7 +12,7 @@ function TopNav() {
     const authData = useSelector(state => state.auth)
     const dispatch = useDispatch()
     return (
-        <Navbar className="navigationBar" collapseOnSelect expand="lg" variant="dark"  >
+        <Navbar className="navigationBar" collapseOnSelect expand="lg" variant="dark"   >
             <Container>
                 <FontAwesomeIcon className="iconLogo" icon={faHome} size={"2xl"} color={"white"} />
                 {/*<img src={logo} className="wd-image-style rounded-circle pt-1" style={{ width: '40px', height: '50px' }} alt={"logo"} />*/}
@@ -33,6 +33,7 @@ function TopNav() {
                                     <Nav.Link href="/houses">My Houses</Nav.Link>
                                     <Nav.Link href="/addHouse">Add House</Nav.Link>
                                     <Nav.Link href="/booking">Bookings</Nav.Link>
+                                    <Nav.Link href="/messages">Messages</Nav.Link>
                                 </div>
                             }
                             {

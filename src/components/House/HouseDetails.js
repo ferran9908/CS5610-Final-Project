@@ -79,7 +79,7 @@ function HouseDetails() {
                             {
                                 user.role === 'BUYER' &&
                                 <div>
-                                    <Button onClick={() => setSmShow(true)} className="me-2 col-4">
+                                    <Button onClick={() => setSmShow(true)} className="me-2 col-lg-4 col-sm-12">
                                         Book Tour
                                     </Button>
                                     <Modal
@@ -115,32 +115,30 @@ function HouseDetails() {
                                     </Modal>
 
 
+                                        <button  type="button" className="btn btn-primary col-lg-4 col-sm-12" variant="primary"
+                                                 onClick={handleShow}>Contact Seller</button>
 
-                                    <button type="button" className="btn btn-primary col-4" variant="primary"
-                                        onClick={handleShow}>Contact Seller</button>
-
-                                    <Modal show={show} onHide={handleClose}>
-                                        <Modal.Header closeButton>
-                                            <Modal.Title>Send Message to Seller</Modal.Title>
-                                        </Modal.Header>
-                                        <Modal.Body>
-                                            <Form>
-                                                <Form.Group
-                                                    className="mb-3"
-                                                    controlId="exampleForm.ControlTextarea1"
-                                                >
-                                                    <Form.Label>Description</Form.Label>
-                                                    <Form.Control as="textarea" rows={3} />
-                                                </Form.Group>
-                                            </Form>
-                                        </Modal.Body>
-                                        <Modal.Footer>
-                                            <Button variant="primary" onClick={handleClose}>
-                                                Send
-                                            </Button>
-                                        </Modal.Footer>
-                                    </Modal>
-
+                                        <Modal show={show} onHide={handleClose}>
+                                            <Modal.Header closeButton>
+                                                <Modal.Title>Send Message to Seller</Modal.Title>
+                                            </Modal.Header>
+                                            <Modal.Body>
+                                                <Form>
+                                                    <Form.Group
+                                                        className="mb-3"
+                                                        controlId="exampleForm.ControlTextarea1"
+                                                    >
+                                                        <Form.Label>Description</Form.Label>
+                                                        <Form.Control as="textarea" rows={3} />
+                                                    </Form.Group>
+                                                </Form>
+                                            </Modal.Body>
+                                            <Modal.Footer>
+                                                <Button variant="primary" onClick={handleClose}>
+                                                    Send
+                                                </Button>
+                                            </Modal.Footer>
+                                        </Modal>
 
                                 </div>
 
@@ -148,7 +146,7 @@ function HouseDetails() {
                             }
                             {
                                 user.role === 'SELLER' &&
-                                <div className="col-6">
+                                <div className="col-8">
                                     <Link to={"/addHouse"} state={{ currentHouse }}>
                                         <button className="btn btn-primary">Edit</button>
                                         <button onClick={(e) => {
