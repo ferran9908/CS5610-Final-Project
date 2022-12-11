@@ -110,10 +110,10 @@
     }
 
     .btn-primary {
-        width: 50%;
+        width: 70%;
         background-color: darkred !important;
         margin-top: 10px;
-        margin-left: 50px;
+        margin-left: 60px;
         /*padding-left: 40px;*/
     }
 }

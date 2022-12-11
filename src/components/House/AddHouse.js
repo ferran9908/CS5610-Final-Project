@@ -1,6 +1,6 @@
 import "./AddHouse.css"
 import React, { useEffect, useState } from 'react'
-
+import './AddHouse.css'
 import axios from "axios"
 import { useDispatch, useSelector } from "react-redux"
 import { createHouse, updateHouse } from "../../store/slices/houseSlice"
@@ -240,12 +240,18 @@ function AddHouse() {
                         <label htmlFor="">Description</label>
                         <textarea name="description" value={formData.description} onChange={handleChange} className="form-control" id="" rows="3" placeholder="Enter House Details"></textarea>
                     </div>
-                    <div>
-                        <input type="file" className="form-control" multiple name="file" onChange={imageAddHandler} />
-                        <div>
-                            <button onClick={imageUploadHandler}>Upload</button>
+
+                    <div className="form-group row">
+                        <label className="form-label">Upload House Images</label>
+                        <div className="col-lg-11 col-sm-6">
+                            <input type="file" className="form-control" multiple name="file" onChange={imageAddHandler} />
+                        </div>
+
+                        <div className="col-lg-1 col-sm-12">
+                            <button  className="btn" onClick={imageUploadHandler}>Upload</button>
                         </div>
                     </div>
+
                     <button type="submit" className="btn btn-primary">Save</button>
                 </form>
             </div>

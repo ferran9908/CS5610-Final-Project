@@ -55,7 +55,7 @@ function HouseDetails () {
                             {
                                 user.role === 'BUYER' &&
                                 <div>
-                                    <Button onClick={() => setSmShow(true)} className="me-2 col-4">
+                                    <Button onClick={() => setSmShow(true)} className="me-2 col-lg-4 col-sm-12">
                                         Book Tour
                                     </Button>
                                     <Modal
@@ -92,7 +92,7 @@ function HouseDetails () {
 
 
 
-                                        <button  type="button" className="btn btn-primary col-4" variant="primary"
+                                        <button  type="button" className="btn btn-primary col-lg-4 col-sm-12" variant="primary"
                                                  onClick={handleShow}>Contact Seller</button>
 
                                         <Modal show={show} onHide={handleClose}>
@@ -124,7 +124,7 @@ function HouseDetails () {
                             }
                             {
                                 user.role === 'SELLER' &&
-                                <div className="col-6">
+                                <div className="col-8">
                                     <Link to={"/addHouse"} state={{ currentHouse }}>
                                         <button className="btn btn-primary">Edit</button>
                                         <button onClick={(e) => {

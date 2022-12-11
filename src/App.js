@@ -13,6 +13,7 @@ import GenericProtectedRoute from "./routes/GenericProtectedRoute";
 import Houses from "./components/Houses/Houses";
 import AddHouse from "./components/House/AddHouse"
 import AllUsers from "./components/Profile/AllUsers"
+import SellerMessages from "./components/Message/SellerMessages"
 function App() {
   return (
     <BrowserRouter>
@@ -28,6 +29,7 @@ function App() {
             <Route path="/favourites" element={<FavHouse />} />
             <Route path="/houses" element={<Houses />} />
             <Route path="/addHouse" element={<AddHouse />} />
+            <Route path="/messages"  element={<SellerMessages />}/>
            
             <Route path="/userList" element={<AllUsers />}/>
           </Route>
