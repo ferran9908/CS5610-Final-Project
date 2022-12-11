@@ -1,69 +1,37 @@
-
-
-
-.buyerListingbody{
-    padding:30px;
-    margin: 40px;
-    border-radius: 20px;
-    /*background: linear-gradient(135deg, whitesmoke 40%, peachpuff);*/
-    background-color: #EFE9E1;
-}
-.listingImage {
-    width: 90%;
+.card-HouseDetails {
+    width: 95%;
+    margin-top: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+    /*margin: 10px;*/
     border-radius: 5px;
-    margin-top: 10px;
+    padding: 30px;
+    /* align-text: center; */
+    background: #EFE9E1 !important;
+    font-size: xxx-large;
+    font-family: Baskerville;
+    color: black;
+}
+
+
+.listingImage {
+    width: 80%;
+    border-radius: 10px;
+    margin-top: 50px;
+    margin-left: 30px;
     border-image-width: 2px;
     border-color: black;
 }
 
-.listingName {
-    padding-top: 30px;
-    padding-left: 50px;
-    font-size: xxx-large;
-    /*border-radius: 20px;*/
-    margin-left: -30px;
-    margin-right: -5px;
-    margin-bottom: 20px;
-    width : 1520px;
-    /*width: 100%;*/
-    font-family: Baskerville;
+.card-title-House{
+    align-content: center;
     background-color: #D1C7BD;
     color: #322D29;
-}
-.buyerListingbox1{
-    /*background-color: #747267;*/
-
-    text-align: left;
+    width: 100%;
+    padding: 20px;
 }
 
-.buyerListingbox2 li{
-    font-family: Baskerville;
-    font-size: 25px;
-    /*font-size: large;*/
-    display: grid;
 
-}
-
-.buyerListingbox2{
-    text-align: left;
-}
-
-.buyerListingdivide {
-    z-index:1;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-    justify-items: left;
-    align-items: center;
-}
-
-.buyerListinggrids{
-    display: grid;
-    gap: 5rem;
-    grid-template-columns: repeat(auto-fit, 20rem);
-
-}
 
 
 .backbutton {
@@ -72,6 +40,7 @@
     height:40px;
     color:white;
     align-content: center;
+    margin-top: 10px;
     margin-left: 100px;
 }
 
@@ -83,13 +52,54 @@
 }
 
 .iconFav {
-    padding-top: 30px;
+
     width: 10%;
+    margin-left: 50px;
     place-content: flex-end;
 }
 
 .list-group-flush-house li{
     font-size: medium;
-    width: 220%;
+    margin-left: 20px;
+    width: 100%;
+}
+
+.list-group {
+    margin: 10px;
+}
+
+.btn-primary {
+    background-color: darkred !important;
+    margin-top: 10px;
+    margin-left: 30px;
+    /*padding-left: 40px;*/
+}
+
+
+.houses-fav-book {
+    margin-left: 10px;
+    place-content: center;
+}
+
+@media screen and (max-width:720px) {
+    /*CSS code for devices with a maximal width of 720 px - phone*/
+    .card-HouseDetails {
+        width: 95%;
+        margin-top: 40px;
+        margin-left: 10px;
+        margin-right: 10px;
+        /*margin: 10px;*/
+        border-radius: 5px;
+        padding: 30px;
+        /* align-text: center; */
+        background: #EFE9E1 !important;
+        font-size: large;
+        font-family: Baskerville;
+        color: black;
+    }
+    .list-group-flush-house li{
+        font-size: medium;
+        width: 100%;
+    }
 }
 

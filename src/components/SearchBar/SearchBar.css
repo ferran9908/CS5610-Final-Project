@@ -48,13 +48,55 @@ body{
 }
 
 
-.centered {
-
-}
-
 .heading-main{
 
     color: whitesmoke;
     font-size: 60px;
     font-family: Baskerville;
+}
+
+@media screen and (max-width:720px) {
+    /*CSS code for devices with a maximal width of 720 px - phone*/
+    .heading-main{
+        margin-top: -150px;
+        color: whitesmoke;
+        font-size: 10px;
+        font-family: Baskerville;
+    }
+
+    .searchTerm {
+        width: 20%;
+        border: 3px solid white;
+        border-right: none;
+        /*padding: 5px;*/
+        height: 36px;
+        border-radius: 5px 0 0 5px;
+        outline: none;
+        color: #9DBFAF;
+        margin-top: -300px;
+        margin-left: 125px;
+        font-size: xx-small;
+    }
+
+    .searchButton {
+        width: 40px;
+        height: 36px;
+        border: 1px solid #A88D79;
+        background: #A88D79    ;
+        text-align: center;
+        color: #fff;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+        font-size: 20px;
+        margin-top: -300px;
+    }
+
+    /*Resize the wrap to see the search bar change!*/
+    .wrap{
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 }

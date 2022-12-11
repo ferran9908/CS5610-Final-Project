@@ -29,19 +29,19 @@ function TopNav() {
                             <Nav.Link href="/profile">Hi, {authData.user.name}</Nav.Link>
                             <Nav.Link href="/home">Home</Nav.Link>
                             {
-                                authData && authData.user.role === 'SELLER' && <div className="flex">
+                                authData && authData.user.role === 'SELLER' && <div className="navbar-flex">
                                     <Nav.Link href="/houses">My Houses</Nav.Link>
                                     <Nav.Link href="/addHouse">Add House</Nav.Link>
                                     <Nav.Link href="/booking">Bookings</Nav.Link>
                                 </div>
                             }
                             {
-                                authData && authData.user.role === 'BUYER' && <div className="flex">
+                                authData && authData.user.role === 'BUYER' && <div className="navbar-flex">
                                     <Nav.Link href="/">Favorites</Nav.Link>
                                     <Nav.Link href="/booking">Bookings</Nav.Link>
                                 </div>
                             }
-                            {authData && authData.user.role === 'ADMIN' && <div className='flex'>
+                            {authData && authData.user.role === 'ADMIN' && <div className='navbar-flex'>
                                 <Nav.Link href="/">User List</Nav.Link>
                             </div>}
                             <Nav.Link href="/">Advanced Search</Nav.Link>

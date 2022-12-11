@@ -1,68 +1,34 @@
-
-.buyerListingbody-card{
-    padding:45px;
-    margin: 50px;
-    border-radius: 10px;
-    /*background: linear-gradient(135deg, whitesmoke 40%, peachpuff);*/
-    background-color: #D1C7BD;
-
+.card-HouseDetails {
+    width: 95%;
+    margin-top: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+    /*margin: 10px;*/
+    border-radius: 5px;
+    padding: 30px;
+    /* align-text: center; */
+    background: #EFE9E1 !important;
+    font-size: xx-large;
+    font-family: Baskerville;
+    color: black;
 }
-.listingImage-card {
+
+.card-title-HouseCard{
+    place-content: center !important;
+    background-color: #EFE9E1 !important;
+    color: #322D29 !important;
     width: 100%;
-    height: 250px;
-    margin: -20px;
+}
+
+.listingImage-card {
+    width: 90%;
+    height: 90%;
+    /*margin: -20px;*/
     margin-left: 20px;
     border-radius: 10px;
     border-image-width: 2px;
     border: 5px solid beige;
 }
-
-.listingName-card {
-    margin-top: -20px;
-    margin-left: -200px;
-    margin-bottom: 30px;
-    font-size: xxx-large;
-    font-family: Baskerville;
-    color: black !important;
-}
-.buyerListingbox1-card{
-    /*background-color: #747267;*/
-    place-items: flex-start;
-    text-align: left;
-}
-
-.buyerListingbox2-card li{
-    font-family: Baskerville;
-    font-size: 25px;
-    margin-left: -200px;
-    /*font-size: large;*/
-    display: grid;
-
-}
-
-.buyerListingbox2{
-    text-align: left;
-}
-
-.buyerListingdivide {
-    z-index:1;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-    justify-items: left;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-}
-
-.buyerListinggrids{
-    display: grid;
-    gap: 5rem;
-    grid-template-columns: repeat(auto-fit, 20rem);
-
-}
-
 
 .backbutton {
     background: linear-gradient(135deg, #A88D79 40%, #BEA79D);
@@ -82,4 +48,26 @@ houseLink:hover {
     color:dimgrey;
     text-decoration:none;
     cursor:pointer;
+}
+
+@media screen and (max-width:720px) {
+    /*CSS code for devices with a maximal width of 720 px - phone*/
+
+    .listingImage-card {
+        width: 100%;
+        height: 100%;
+        margin: -20px;
+        margin-left: 20px;
+        border-radius: 10px;
+        border-image-width: 2px;
+        border: 5px solid beige;
+    }
+
+    .card-title-HouseCard{
+        margin-left: 30px;
+        place-content: center !important;
+        background-color: #EFE9E1 !important;
+        color: #322D29 !important;
+        width: 100%;
+    }
 }
