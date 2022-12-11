@@ -33,7 +33,6 @@
 
 
 
-
 .backbutton {
     background-color: darkred !important;
     width: 65px;
@@ -100,6 +99,14 @@
     .list-group-flush-house li{
         font-size: medium;
         width: 100%;
+    }
+
+    .card-title-House{
+        align-content: center;
+        background-color: #D1C7BD;
+        color: #322D29;
+        width: 100%;
+        /*padding: 20px;*/
     }
 }
 
