@@ -1,22 +1,37 @@
 import NavigationBar from "../Header/TopNav";
 import "./HouseDetails.css"
 import React, { useEffect } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, useNavigate, useParams,  } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee, faHome, faHeart } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteHouse, findHouse } from "../../store/slices/houseSlice";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
+import DatePicker from "react-datepicker";
 
-function HouseDetails() {
+function HouseDetails () {
     const { id } = useParams()
     const dispatch = useDispatch()
     const currentHouse = useSelector(state => state.houses.currentHouse)
     const user = useSelector(state => state.auth.user)
     const jwt = useSelector(state => state.auth.jwt)
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    const today = new Date();
+    const [smShow, setSmShow] = useState(false);
+    const [lgShow, setLgShow] = useState(false);
+
+
     useEffect(() => {
         dispatch(findHouse(id))
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
+
 
     const navigateTo = useNavigate()
 
@@ -35,15 +50,76 @@ function HouseDetails() {
                             src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
                             alt="listing"
                         />
+
                         <div className="row houses-fav-book">
                             {/**/}
                             {
                                 user.role === 'BUYER' &&
-                                <Link>
-                                    <div className="col-6">
-                                        <button href="#" className="btn btn-primary">Book</button>
-                                    </div>
-                                </Link>
+                                <div>
+                                    <Button onClick={() => setSmShow(true)} className="me-2 col-4">
+                                        Book Tour
+                                    </Button>
+                                    <Modal
+                                        show={smShow}
+                                        onHide={() => setSmShow(false)}>
+                                        <Modal.Header closeButton>
+                                            <Modal.Title id="example-modal-sizes-title-sm">
+                                                Book Tour
+                                            </Modal.Title>
+                                        </Modal.Header>
+                                        <Modal.Body>
+                                            <Form>
+                                                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                                                    <Form.Label>Enter Date:</Form.Label>
+                                                    <Form.Control type="date" name="tour-date" placeholder="Enter Tour Date" />
+
+                                                </Form.Group>
+
+                                                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                                                    <Form.Label>Enter Date:</Form.Label>
+                                                    <Form.Control type="time" name="tour-date" placeholder="Enter Tour Date" />
+
+                                                </Form.Group>
+                                            </Form>
+                                        </Modal.Body>
+
+                                        <Modal.Footer>
+                                            <Button variant="primary" onClick={handleClose}>
+                                                Book
+                                            </Button>
+                                        </Modal.Footer>
+
+                                    </Modal>
+
+
+
+                                        <button  type="button" className="btn btn-primary col-4" variant="primary"
+                                                 onClick={handleShow}>Contact Seller</button>
+
+                                        <Modal show={show} onHide={handleClose}>
+                                            <Modal.Header closeButton>
+                                                <Modal.Title>Send Message to Seller</Modal.Title>
+                                            </Modal.Header>
+                                            <Modal.Body>
+                                                <Form>
+                                                    <Form.Group
+                                                        className="mb-3"
+                                                        controlId="exampleForm.ControlTextarea1"
+                                                    >
+                                                        <Form.Label>Description</Form.Label>
+                                                        <Form.Control as="textarea" rows={3} />
+                                                    </Form.Group>
+                                                </Form>
+                                            </Modal.Body>
+                                            <Modal.Footer>
+                                                <Button variant="primary" onClick={handleClose}>
+                                                    Send
+                                                </Button>
+                                            </Modal.Footer>
+                                        </Modal>
+
+
+                                </div>
 
 
                             }
