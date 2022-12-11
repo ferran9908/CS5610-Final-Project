@@ -11,6 +11,7 @@ import SellerBookings from "./components/Booking/SellerBookings"
 import FavHouse from "./components/House/FavHouse";
 import GenericProtectedRoute from "./routes/GenericProtectedRoute";
 import Houses from "./components/Houses/Houses";
+import AddHouse from "./components/House/AddHouse"
 function App() {
   return (
     <BrowserRouter>
@@ -31,6 +32,7 @@ function App() {
           {/* Should be a protected route */}
           <Route path="/profile/:id" element={<Profile />} />
           <Route path="/house/:id" element={<HouseDetails />} />
+          <Route path="/addHouse" element={<AddHouse />}/>
         </Routes>
       </div>
     </BrowserRouter>
