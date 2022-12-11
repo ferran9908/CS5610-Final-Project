@@ -10,17 +10,16 @@ import { useSelector } from 'react-redux';
 function TopNav() {
     const authData = useSelector(state => state.auth)
     return (
-        <Navbar className="navigationBar" collapseOnSelect expand="lg" variant="dark">
+        <Navbar className="navigationBar" collapseOnSelect expand="lg" variant="dark"  >
             <Container>
                 <FontAwesomeIcon className="iconLogo" icon={faHome} size={"2xl"} color={"white"} />
                 {/*<img src={logo} className="wd-image-style rounded-circle pt-1" style={{ width: '40px', height: '50px' }} alt={"logo"} />*/}
                 <Navbar.Brand className="headingLogo" href="/">Pillow</Navbar.Brand>
-                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                <Navbar.Collapse id="responsive-navbar-nav">
+                <Navbar.Toggle classname="hamburger-menu" aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse classname="hamburger-menu" id="responsive-navbar-nav">
                     {
                         !authData.jwt ? (<Nav className="me-auto">
                             <Nav.Link href="/login">Login / SignUp</Nav.Link>
-                                <Nav.Link className="me-auto" href="#deets">Contact Us</Nav.Link>
                             </Nav>
 
                         ) : (<Nav className="me-auto">
@@ -28,7 +27,7 @@ function TopNav() {
                             <Nav.Link href="/home">Home</Nav.Link>
                             <Nav.Link href="/booking">Bookings</Nav.Link>
                             <Nav.Link href="/favourites">Favourites</Nav.Link>
-                        <Nav.Link  href="#deets">SignOut</Nav.Link>
+                            <Nav.Link href="#deets">SignOut</Nav.Link>
                         </Nav>)
                     }
                     
