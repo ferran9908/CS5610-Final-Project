@@ -10,16 +10,6 @@
   /*top: 100px;*/
 }
 
-.centered {
-
-}
-
-.heading-main{
-  display: flex;
-  color: whitesmoke;
-  font-size: 60px;
-  font-family: Baskerville;
-}
 .body{
     background-color: black;
 }
