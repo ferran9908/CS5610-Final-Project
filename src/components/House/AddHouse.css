@@ -1,0 +1,74 @@
+.card-addHouse {
+    width: 95%;
+    margin-top: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+    /*margin: 10px;*/
+    border-radius: 5px;
+    padding: 30px;
+    /* align-text: center; */
+    background: #EFE9E1 !important;
+    font-size: x-large;
+    font-family: Baskerville;
+    color: black;
+}
+
+.card-img-top {
+    border-radius: 10px;
+    width: 50%;
+    height: 20%;
+    padding: 7%;
+}
+
+.btn-primary {
+    background-color: darkred !important;
+    margin-top: 10px;
+    margin-left: 30px;
+    /*padding-left: 40px;*/
+}
+
+.btn-primary:hover, .btn-primary:focus {
+
+    border: 5px solid #fff !important;
+    box-shadow: #222 1px 0 10px;
+    text-decoration: underline;
+}
+
+.card-title-addHouse{
+    align-content: center;
+    background-color: #D1C7BD;
+    color: #322D29;
+    width: 100%;
+    padding: 20px;
+}
+
+.form-label {
+    padding-top: 5px;
+}
+
+@media screen and (max-width:720px) {
+    /*CSS code for devices with a maximal width of 720 px - phone*/
+
+    .btn-primary {
+        background-color: darkred !important;
+        margin-top: 10px;
+        margin-left: 30px;
+        /*padding-left: 40px;*/
+    }
+
+    .card-addHouse {
+        width: 98%;
+        margin-top: 40px;
+        margin-left: 10px;
+        margin-right: 10px;
+        /*margin: 10px;*/
+        border-radius: 5px;
+        padding: 5px;
+        /* align-text: center; */
+        background: #EFE9E1 !important;
+        font-size: small;
+        font-family: Baskerville;
+        color: black;
+    }
+
+}
