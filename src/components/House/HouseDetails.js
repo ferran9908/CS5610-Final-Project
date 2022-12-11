@@ -20,27 +20,30 @@ function HouseDetails() {
 
     return (currentHouse &&
         <div>
-            <div className='buyerListingbody'>
-                <div className="listingName">
+            <div className='card-HouseDetails'>
+                <div className="card-title-House">
                     Welcome to {currentHouse.name}
+                    
+                    <FontAwesomeIcon className="iconFav" icon={faHeart}  color={"red"} />
                 </div>
 
-                {/* dividing the page to 2 parts  */}
-                <div className='buyerListingdivide'>
-                    <div className='buyerListingbox1'>
-                        {/*<ListingImages cardDetails={card} />*/}
-
+                <div className="row container">
+                    <div className="col-lg-6 col-md-4 col-sm-12">
                         <img className="listingImage"
-                            src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                             src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
                         />
-                        <div>
-                            <FontAwesomeIcon className="iconFav" icon={faHeart} size={"2xl"} color={"red"} />
+                        <div className="row houses-fav-book">
+                            {/**/}
+                            <div className="col-6">
+                                <button href="#" className="btn btn-primary">Book</button>
+                            </div>
+
                         </div>
+
 
                     </div>
 
-                    <div className='buyerListingbox2'>
-                        {/*<ListingInformation cardDetails={card} />*/}
+                    <div className="col-lg-6 col-md-8 col-sm-12">
                         <ul className="list-group list-group-flush-house">
                             <li className="list-group-item">Street Address: {currentHouse.streetAddress}</li>
                             <li className="list-group-item">Unit: {currentHouse.unit}</li>
@@ -55,11 +58,10 @@ function HouseDetails() {
                             <li className="list-group-item">Price: {currentHouse.price}</li>
                             <li className="list-group-item">Description: {currentHouse.description}</li>
                         </ul>
-
                     </div>
-
-
                 </div>
+
+
             </div>
             <button  onClick={() => { navigateTo(-1) }} variant='outline-dark' className='backbutton'>
                 Back

@@ -58,6 +58,11 @@ h6{
     margin-left: 150px;
 }
 
+.navbar-flex {
+    display: flex;
+    flex-direction: row;
+}
+
 
 @media screen and (max-width:720px) {
     /*CSS code for devices with a maximal width of 720 px - phone*/
@@ -115,5 +120,10 @@ h6{
         margin-top: 15px;
         font-size: medium;
         background-color: #A88D79 !important ;
+    }
+
+    .navbar-flex {
+        display: flex;
+        flex-direction: column;
     }
 }
