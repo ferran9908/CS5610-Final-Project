@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 
 import axios from "axios"
 import { useDispatch, useSelector } from "react-redux"
-import { createHouse } from "../../store/slices/houseSlice"
+import { createHouse, updateHouse } from "../../store/slices/houseSlice"
 import { useNavigate } from "react-router"
 import {useLocation} from "react-router-dom"
 
@@ -14,6 +14,8 @@ function AddHouse() {
     const jwt = useSelector(state => state.auth.jwt)
 
     const navigateTo = useNavigate()
+
+    const [isEdit, setIsEdit] = useState(false)
 
     const [formData, setFormData] = useState({
         name: '', streetAddress: '', unit: '', city: '',
@@ -35,7 +37,9 @@ function AddHouse() {
     }
     useEffect(() => {
         if (location.state && location.state.currentHouse){
+            console.log({cHouse: location.state.currentHouse})
             setFormData(location.state.currentHouse)
+            setIsEdit(true)
         }
 
     },[])
@@ -68,8 +72,15 @@ function AddHouse() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        dispatch(createHouse({ payload: formData, jwt }))
-        navigateTo("/")
+
+        if(!isEdit){
+            dispatch(createHouse({ payload: formData, jwt }))
+            navigateTo("/")}
+        else {
+            dispatch(updateHouse({payload: formData, jwt, hid: location.state.currentHouse._id }))
+            navigateTo(-1)
+        }
+
     }
 
     useEffect(() => console.log({ formData }), [formData])

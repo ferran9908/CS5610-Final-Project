@@ -80,5 +80,5 @@ export const updateHouse = ({hid, jwt, payload}) => {
             }
         })
         dispatch(findHouse(hid))
-}
+}}
 
