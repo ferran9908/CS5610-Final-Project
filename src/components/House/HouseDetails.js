@@ -1,38 +1,60 @@
-import NavigationBar from "../Header/TopNav";
 import "./HouseDetails.css"
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import { Link, useNavigate, useParams,  } from 'react-router-dom';
+import { Link, useNavigate, useParams, } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteHouse, findHouse } from "../../store/slices/houseSlice";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
+import { deleteHouse, findHouse, likeHouseInDb, unlikeHouseInDb } from "../../store/slices/houseSlice";
+import { getMe } from "../../store/slices/authSlice";
 
-function HouseDetails () {
+const isHouseLiked = (houseId, favoriteHouses) => {
+    const likedArray = favoriteHouses.filter(house => {
+        if (house.house._id === houseId) {
+            return true
+        }
+        return false
+    })
+
+    return likedArray.length > 0
+
+}
+
+function HouseDetails() {
     const { id } = useParams()
     const dispatch = useDispatch()
     const currentHouse = useSelector(state => state.houses.currentHouse)
+    const favoriteHouses = useSelector(state => state.auth.user.favHouses)
     const user = useSelector(state => state.auth.user)
     const jwt = useSelector(state => state.auth.jwt)
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const today = new Date();
+    // const today = new Date();
     const [smShow, setSmShow] = useState(false);
-    const [lgShow, setLgShow] = useState(false);
+    // const [lgShow, setLgShow] = useState(false);
 
 
     useEffect(() => {
         dispatch(findHouse(id))
+        dispatch(getMe({ id: user._id }))
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
 
     const navigateTo = useNavigate()
+
+    const likeHouse = () => {
+        dispatch(likeHouseInDb({ jwt, houseId: id, userId: user._id }))
+    }
+
+    const unlikeHouse = () => {
+        dispatch(unlikeHouseInDb({ jwt, houseId: id, userId: user._id }))
+    }
 
     return (currentHouse &&
         <div>
@@ -40,7 +62,9 @@ function HouseDetails () {
                 <div className="card-title-House">
                     Welcome to {currentHouse.name}
 
-                    <FontAwesomeIcon className="iconFav" icon={faHeart} color={"red"} />
+                    {isHouseLiked(id, favoriteHouses) ?
+                        <FontAwesomeIcon onClick={unlikeHouse} style={{ cursor: 'pointer' }} className="iconFav" icon={faHeart} color={'red'} />
+                        : <FontAwesomeIcon onClick={likeHouse} style={{ cursor: 'pointer' }} className="iconFav" icon={faHeart} color={'white'} />}
                 </div>
 
                 <div className="row container">
@@ -91,7 +115,6 @@ function HouseDetails () {
                                     </Modal>
 
 
-
                                         <button  type="button" className="btn btn-primary col-lg-4 col-sm-12" variant="primary"
                                                  onClick={handleShow}>Contact Seller</button>
 
@@ -116,7 +139,6 @@ function HouseDetails () {
                                                 </Button>
                                             </Modal.Footer>
                                         </Modal>
-
 
                                 </div>
 

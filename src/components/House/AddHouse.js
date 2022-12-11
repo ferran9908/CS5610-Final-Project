@@ -1,7 +1,7 @@
 import "./AddHouse.css"
 import React, { useEffect, useState } from 'react'
-import './AddHouse.css'
 import axios from "axios"
+
 import { useDispatch, useSelector } from "react-redux"
 import { createHouse, updateHouse } from "../../store/slices/houseSlice"
 import { useNavigate } from "react-router"
@@ -43,6 +43,7 @@ function AddHouse() {
             setIsEdit(true)
         }
 
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const imageUploadHandler = async (e) => {
