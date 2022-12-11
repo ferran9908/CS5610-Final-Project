@@ -24,7 +24,7 @@ export const AuthSlice = createSlice({
         //     return state
         // },
         logout: () => {
-            return { jwt: null, error: null }
+            return { jwt: null, error: null, user: null }
         }
     },
     initialState

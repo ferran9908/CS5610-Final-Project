@@ -28,9 +28,13 @@ const houseSlice = createSlice(
 export default houseSlice.reducer
 export const { getHouse, getAllHouses } = houseSlice.actions
 
-export const createHouse = (payload) => {
-    return async dispatch => {
-        await axios.post(`${BASE_URL}/add-house`, payload)
+export const createHouse = ({ payload, jwt }) => {
+    return async () => {
+        await axios.post(`${BASE_URL}/add-house`, payload, {
+            headers: {
+                'Authorization': `Bearer ${jwt}`
+            }
+        })
     }
 }
 
