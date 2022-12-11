@@ -27,14 +27,16 @@ function App() {
             <Route path="/booking" element={<SellerBookings />} />
             <Route path="/favourites" element={<FavHouse />} />
             <Route path="/houses" element={<Houses />} />
+            <Route path="/addHouse" element={<AddHouse />} />
+           
+            <Route path="/userList" element={<AllUsers />}/>
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
           {/* Should be a protected route */}
           <Route path="/profile/:id" element={<Profile />} />
           <Route path="/house/:id" element={<HouseDetails />} />
-          <Route path="/addHouse" element={<AddHouse />}/>
-          <Route path="/userList" element={<AllUsers />}/>
+
         </Routes>
       </div>
     </BrowserRouter>
