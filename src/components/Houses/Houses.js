@@ -1,15 +1,18 @@
-
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { findAllHouses } from '../../store/slices/houseSlice'
-import HouseCard from './HouseCard'
+import { findAllHouses, findSellerHouses } from '../../store/slices/houseSlice'
+import HouseCard from '../House/HouseCard'
 
-const AllHouses = () => {
+const Houses = () => {
     const dispatch = useDispatch()
+    const authData = useSelector(state => state.auth)
     const houses = useSelector(state => state.houses.houses)
     useEffect(() => {
-        dispatch(findAllHouses())
+        if (authData.user.role === "SELLER")
+            dispatch(findSellerHouses({ jwt: authData.jwt, email: authData.user.email }))
+        else
+            dispatch(findAllHouses())
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     return (
@@ -21,5 +24,4 @@ const AllHouses = () => {
     )
 }
 
-export default AllHouses
-
+export default Houses

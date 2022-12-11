@@ -5,10 +5,12 @@ import Navbar from 'react-bootstrap/Navbar';
 import './TopNav.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../../store/slices/authSlice';
 
 function TopNav() {
     const authData = useSelector(state => state.auth)
+    const dispatch = useDispatch()
     return (
         <Navbar className="navigationBar" collapseOnSelect expand="lg" variant="dark"  >
             <Container>
@@ -26,9 +28,26 @@ function TopNav() {
                         ) : (<Nav className="me-auto">
                             <Nav.Link href="/profile">Hi, {authData.user.name}</Nav.Link>
                             <Nav.Link href="/home">Home</Nav.Link>
-                            <Nav.Link href="/booking">Bookings</Nav.Link>
-                            <Nav.Link href="/favourites">Favourites</Nav.Link>
-                            <Nav.Link href="#deets">SignOut</Nav.Link>
+                            {
+                                authData && authData.user.role === 'SELLER' && <div className="flex">
+                                    <Nav.Link href="/houses">My Houses</Nav.Link>
+                                    <Nav.Link href="/">Add House</Nav.Link>
+                                    <Nav.Link href="/booking">Bookings</Nav.Link>
+                                </div>
+                            }
+                            {
+                                authData && authData.user.role === 'BUYER' && <div className="flex">
+                                    <Nav.Link href="/">Favorites</Nav.Link>
+                                    <Nav.Link href="/booking">Bookings</Nav.Link>
+                                </div>
+                            }
+                            {authData && authData.user.role === 'ADMIN' && <div className='flex'>
+                                <Nav.Link href="/">User List</Nav.Link>
+                            </div>}
+                            <Nav.Link href="/">Advanced Search</Nav.Link>
+                            <Nav.Link onClick={() => {
+                                dispatch(logout())
+                            }}>SignOut</Nav.Link>
                         </Nav>)
                     }
 

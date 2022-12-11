@@ -6,7 +6,6 @@ const BASE_URL = `${process.env.REACT_APP_BASE_URL}/house`
 const initialState = {
     currentHouse: null,
     houses: [],
-    // loading: true
 }
 
 const houseSlice = createSlice(
@@ -31,7 +30,7 @@ export const { getHouse, getAllHouses } = houseSlice.actions
 
 export const createHouse = (payload) => {
     return async dispatch => {
-        const createHouseResponse = await axios.post(`${BASE_URL}/add-house`, payload)
+        await axios.post(`${BASE_URL}/add-house`, payload)
     }
 }
 
@@ -49,12 +48,23 @@ export const findAllHouses = () => {
         const houses = findAllHouses.data
         dispatch(getAllHouses(houses))
     }
+}
 
+export const findSellerHouses = ({ jwt, email }) => {
+    return async dispatch => {
+        const findSellerHouses = await axios.post(`${BASE_URL}/get-houses`, { email }, {
+            headers: {
+                'Authorization': `Bearer ${jwt}`
+            }
+        })
+        const houses = findSellerHouses.data
+        dispatch(getAllHouses(houses))
+    }
 }
 
 export const deleteHouse = (hid) => {
     return async dispatch => {
-        const deleteHouse = await axios.delete(`${BASE_URL}/${hid}`)
+        await axios.delete(`${BASE_URL}/${hid}`)
     }
 }
 

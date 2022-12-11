@@ -9,6 +9,8 @@ import HouseDetails from "./components/House/HouseDetails";
 import MyProfile from "./components/MyProfile/MyProfile";
 import SellerBookings from "./components/Booking/SellerBookings"
 import FavHouse from "./components/House/FavHouse";
+import GenericProtectedRoute from "./routes/GenericProtectedRoute";
+import Houses from "./components/Houses/Houses";
 function App() {
   return (
     <BrowserRouter>
@@ -18,14 +20,17 @@ function App() {
         </div>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route element={<GenericProtectedRoute />}>
+            <Route path="/profile" element={<MyProfile />} />
+            <Route path="/booking" element={<SellerBookings />} />
+            <Route path="/favourites" element={<FavHouse />} />
+            <Route path="/houses" element={<Houses />} />
+          </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
           {/* Should be a protected route */}
-          <Route path="/profile" element={<MyProfile />} />
           <Route path="/profile/:id" element={<Profile />} />
           <Route path="/house/:id" element={<HouseDetails />} />
-          <Route path="/booking" element={<SellerBookings />} />
-          <Route path="/favourites" element={<FavHouse />} />
         </Routes>
       </div>
     </BrowserRouter>
