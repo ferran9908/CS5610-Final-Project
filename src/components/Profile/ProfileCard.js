@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { deleteUserFromDb } from '../../store/slices/profileSlice';
 
 function ProfileCard({ name, role, id }) {
@@ -8,13 +9,15 @@ function ProfileCard({ name, role, id }) {
     const jwt = useSelector(state => state.auth.jwt)
     return (
         <div className="row">
-            <div className="col-10">
-                <ul className="list-group list-group-flush">
-                    <li className="list-group-item">Name:   {name}</li>
-                    <li className="list-group-item">Role: {role}</li>
+            <Link to={`/profile/${id}`} style={{ textDecoration: 'none' }}>
+                <div className="col-10">
+                    <ul className="list-group list-group-flush">
+                        <li className="list-group-item">Name:   {name}</li>
+                        <li className="list-group-item">Role: {role}</li>
 
-                </ul>
-            </div>
+                    </ul>
+                </div>
+            </Link>
 
             <div className="col-2">
                 <button onClick={() => {
