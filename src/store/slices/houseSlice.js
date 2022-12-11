@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
+import { getMe } from './authSlice'
 
 const BASE_URL = `${process.env.REACT_APP_BASE_URL}/house`
 
@@ -88,3 +89,24 @@ export const updateHouse = ({ hid, jwt, payload }) => {
     }
 }
 
+export const likeHouseInDb = ({ jwt, houseId, userId }) => {
+    return async dispatch => {
+        await axios.post(`${BASE_URL}/add-fav-house/${houseId}`, {}, {
+            headers: {
+                'Authorization': `Bearer ${jwt}`
+            }
+        })
+        dispatch(getMe({ id: userId }))
+    }
+}
+
+export const unlikeHouseInDb = ({ jwt, houseId, userId }) => {
+    return async dispatch => {
+        await axios.put(`${BASE_URL}/remove-fav-house/${houseId}`, {}, {
+            headers: {
+                'Authorization': `Bearer ${jwt}`
+            }
+        })
+        dispatch(getMe({ id: userId }))
+    }
+}

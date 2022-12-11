@@ -1,8 +1,8 @@
 
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, useNavigate } from 'react-router-dom'
-import { deleteUserFromDb, findAllProfiles } from '../../store/slices/profileSlice'
+import { useNavigate } from 'react-router-dom'
+import { findAllProfiles } from '../../store/slices/profileSlice'
 import ProfileCard from './ProfileCard'
 import './Profile.css'
 
