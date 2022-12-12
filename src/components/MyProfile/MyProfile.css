@@ -12,6 +12,22 @@
     font-family: Baskerville;
     color: black;
     place-items: center;
+    border-radius: 10px;
+}
+
+.card-favourite {
+    width: 90%;
+    /* height: 350px; */
+    margin-top: 100px;
+    margin-left: 40px;
+    margin-right: 10px;
+    padding: 30px;
+    border-radius: 10px;
+    font-size: x-large;
+    background: whitesmoke !important;
+    font-family: Baskerville;
+    color: black;
+    place-items: center;
 }
 
 .card-profile-edit {
@@ -36,6 +52,8 @@
     background-color: #D1C7BD;
     color: #322D29;
     padding: 15px ;
+
+    border-radius: 10px;
 }
 
 .edit-profile-btn {

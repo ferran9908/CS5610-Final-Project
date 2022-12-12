@@ -40,7 +40,7 @@ const MyProfile = () => {
                         }}>Edit Profile</Button>
 
                     </div>
-                    <div className="card-profile">
+                    <div className="card-favourite">
                         <h1 className="card-title-profile ">Favorites</h1>
                         <div className="row row-cols-1 row-cols-md-3 g-4">
                             {profile && profile.favHouses && profile.favHouses.map(house => <FavHouseCard house={house.house} key={house.house._id} />)}
