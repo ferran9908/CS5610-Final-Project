@@ -1,5 +1,5 @@
 import "./HouseCard.css"
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 const BASE_URL = process.env.REACT_APP_BASE_URL
 
@@ -12,6 +12,8 @@ function HouseCard({ name, streetAddress, price, description, images })
         setIndex(selectedIndex);
     };
 
+    useEffect(() => console.log({images ,name}), [images])
+
     return (
         <div>
             <div className='card-HouseDetails'>
@@ -23,15 +25,10 @@ function HouseCard({ name, streetAddress, price, description, images })
                         {/*    alt="House"*/}
                         {/*/>*/}
 
-                        {
-                            !images.image &&
-                            <img className="listingImage-card"
-                                 src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
-                                 alt="Card cap" />
-                        }
+
 
                         {
-                            images.image &&  <Carousel activeIndex={index} onSelect={handleSelect}>
+                            images.length?  <Carousel activeIndex={index} onSelect={handleSelect}>
                                 { images && images.map (
 
                                     image => {
@@ -50,7 +47,14 @@ function HouseCard({ name, streetAddress, price, description, images })
 
                                 }
 
-                            </Carousel>
+                            </Carousel>:<></>
+                        }
+
+                        {
+                            !images.length ?
+                            <img className="listingImage-card"
+                                 src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                                 alt="Card cap" />:<></>
                         }
 
 

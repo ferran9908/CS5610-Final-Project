@@ -15,7 +15,7 @@ const FavHouseCard = ({ house }) => {
         <div className="col">
             <div className="card " >
                 {
-                    !house.images.image &&
+                    !house.images.length &&
                     <img className="card-img-top"
                          src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
                          alt="Card cap" />
@@ -23,7 +23,7 @@ const FavHouseCard = ({ house }) => {
 
 
                 {
-                    house.images.image && <Carousel activeIndex={index} onSelect={handleSelect}>
+                    house.images.length ? <Carousel activeIndex={index} onSelect={handleSelect}>
                         { house.images.map (
                             image => {
                                 console.log({url: `${BASE_URL}/${image.image.pic}`})
@@ -41,7 +41,7 @@ const FavHouseCard = ({ house }) => {
 
                         }
 
-                    </Carousel>
+                    </Carousel> : <></>
                 }
 
 

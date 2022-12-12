@@ -118,7 +118,7 @@ function HouseDetails() {
                 <div className="row container">
                     <div className="col-lg-6 col-md-4 col-sm-12">
                         {
-                            !currentHouse.images.image &&
+                            !currentHouse.images.length &&
                             <img className="listingImage"
                                  src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
                                  alt="listing"
@@ -126,7 +126,7 @@ function HouseDetails() {
                         }
 
                         {
-                            currentHouse.images.image &&
+                            currentHouse.images.length ?
                             <Carousel activeIndex={index} onSelect={handleSelect}>
                                 { currentHouse && currentHouse.images && currentHouse.images.map (
                                     image => {
@@ -145,7 +145,7 @@ function HouseDetails() {
 
                                 }
 
-                            </Carousel>
+                            </Carousel> : <></>
                         }
                         
 
