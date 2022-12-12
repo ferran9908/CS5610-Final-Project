@@ -45,7 +45,6 @@ function TopNav() {
                             {authData && authData.user.role === 'ADMIN' && <div className='navbar-flex'>
                                 <Nav.Link href="/userList">User List</Nav.Link>
                             </div>}
-                            <Nav.Link href="/">Advanced Search</Nav.Link>
                             <Nav.Link onClick={() => {
                                 dispatch(logout())
                             }}>SignOut</Nav.Link>
