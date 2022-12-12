@@ -92,12 +92,14 @@ export const findAllBookingsSeller = ({ sid, jwt }) => {
 export const acceptBooking = ({ jwt, id, sid }) => {
     return async dispatch => {
         try {
+            console.log("HERE")
             await axios.put(`${BASE_URL}/${id}`, {}, {
                 headers: {
                     'Authorization': `Bearer ${jwt}`
                 }
             })
             dispatch(findAllBookingsSeller({ sid, jwt }))
+            dispatch(getMe({id: sid}))
         }
         catch (e) {
             console.error({ error: e })
