@@ -38,9 +38,15 @@ export const createMessage = ({ payload, jwt, id }) => {
     }
 }
 
-export const deleteMessage = (mid) => {
-    return async () => {
-        await axios.delete(`${BASE_URL}/${mid}`)
+export const deleteMessage = ({ mid, jwt, id }) => {
+    return async (dispatch) => {
+        const response = await axios.delete(`${BASE_URL}/${mid}`, {
+            headers: {
+                Authorization: `Bearer ${jwt}`
+            }
+        })
+        console.log({ data: response.data })
+        dispatch(getMe({ id }))
     }
 }
 
