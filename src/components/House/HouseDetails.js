@@ -10,7 +10,6 @@ import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 
 import { createBooking } from '../../store/slices/bookingSlice'
-import { useLocation } from "react-router-dom"
 import { deleteHouse, findHouse, likeHouseInDb, unlikeHouseInDb } from "../../store/slices/houseSlice";
 import { getMe } from "../../store/slices/authSlice";
 import { createMessage } from "../../store/slices/messageSlice";
@@ -35,8 +34,7 @@ function HouseDetails() {
     const jwt = useSelector(state => state.auth.jwt)
 
     const [show, setShow] = useState(false);
-    const location = useLocation()
-    const [bookingDate,setBookingDate] = useState('')
+    const [bookingDate, setBookingDate] = useState('')
     const [bookingTime, setBookingTime] = useState('');
 
 
@@ -54,7 +52,7 @@ function HouseDetails() {
                 date: bookingDate,
                 time: bookingTime
             }
-            dispatch(createBooking({payload, jwt, id: user._id}))
+            dispatch(createBooking({ payload, jwt, id: user._id }))
             console.log(payload)
         }
 
@@ -72,6 +70,7 @@ function HouseDetails() {
             }
             dispatch(createMessage({ payload, jwt, id: user._id }))
             setShow(false)
+            setMessage('')
         }
     }
 
@@ -137,13 +136,13 @@ function HouseDetails() {
                                             <Form>
                                                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                                     <Form.Label>Enter Date:</Form.Label>
-                                                    <Form.Control type="date"  value={bookingDate} onChange={e => setBookingDate(e.target.value)}  placeholder="Enter Tour Date" />
+                                                    <Form.Control type="date" value={bookingDate} onChange={e => setBookingDate(e.target.value)} placeholder="Enter Tour Date" />
 
                                                 </Form.Group>
 
                                                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                                     <Form.Label>Enter Date:</Form.Label>
-                                                    <Form.Control type="time"  value={bookingTime} onChange={e => setBookingTime(e.target.value)}  placeholder="Enter Tour Time" />
+                                                    <Form.Control type="time" value={bookingTime} onChange={e => setBookingTime(e.target.value)} placeholder="Enter Tour Time" />
 
                                                 </Form.Group>
                                             </Form>
