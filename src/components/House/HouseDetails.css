@@ -15,10 +15,10 @@
 
 
 .listingImage {
-    width: 80%;
+    width: 100%;
     border-radius: 10px;
     margin-top: 50px;
-    margin-left: 30px;
+    /*margin-left: 30px;*/
     border-image-width: 2px;
     border-color: black;
 }
@@ -110,10 +110,10 @@
     }
 
     .btn-primary {
-        width: 50%;
+        width: 70%;
         background-color: darkred !important;
         margin-top: 10px;
-        margin-left: 50px;
+        margin-left: 60px;
         /*padding-left: 40px;*/
     }
 }

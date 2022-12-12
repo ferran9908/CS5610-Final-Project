@@ -1,14 +1,26 @@
 .card-profile {
     width: 90%;
-    /* height: 350px; */
-    margin-top: 100px;
+    margin-top: 70px;
     margin-left: 40px;
     margin-right: 10px;
     padding: 30px;
-    /*margin: 10px;*/
-    /*padding: 15px;*/
     font-size: x-large;
     background: #EFE9E1 !important;
+    font-family: Baskerville;
+    color: black;
+    place-items: center;
+    border-radius: 10px;
+}
+
+.card-favourite {
+    width: 90%;
+    margin-left: 40px;
+    margin-right: 10px;
+    margin-top: 30px;
+    padding: 30px;
+    border-radius: 10px;
+    font-size: x-large;
+    background: whitesmoke !important;
     font-family: Baskerville;
     color: black;
     place-items: center;
@@ -33,6 +45,11 @@
 
 .card-title-profile {
     margin-bottom: 20px;
+    background-color: #D1C7BD;
+    color: #322D29;
+    padding: 15px ;
+
+    border-radius: 10px;
 }
 
 .edit-profile-btn {
