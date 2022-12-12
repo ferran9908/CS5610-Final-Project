@@ -13,7 +13,10 @@ import GenericProtectedRoute from "./routes/GenericProtectedRoute";
 import Houses from "./components/Houses/Houses";
 import AddHouse from "./components/House/AddHouse"
 import AllUsers from "./components/Profile/AllUsers"
+import MapContainer from "./components/Map/MapContainer";
+
 import SellerMessages from "./components/Message/SellerMessages"
+
 function App() {
   return (
     <BrowserRouter>
@@ -30,7 +33,6 @@ function App() {
             <Route path="/houses" element={<Houses />} />
             <Route path="/addHouse" element={<AddHouse />} />
             <Route path="/messages"  element={<SellerMessages />}/>
-           
             <Route path="/userList" element={<AllUsers />}/>
           </Route>
           <Route path="/login" element={<Login />} />
@@ -38,7 +40,7 @@ function App() {
           {/* Should be a protected route */}
           <Route path="/profile/:id" element={<Profile />} />
           <Route path="/house/:id" element={<HouseDetails />} />
-
+          <Route path="/search/:zip" element={<MapContainer/>} />
         </Routes>
       </div>
     </BrowserRouter>

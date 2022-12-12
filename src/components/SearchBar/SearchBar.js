@@ -1,9 +1,16 @@
 import './SearchBar.css';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSearch} from "@fortawesome/free-solid-svg-icons";
-import React from "react";
+import React, {useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 function SearchBar() {
+    const navigateTo = useNavigate()
+    const [searchText, setSearchText] = useState('')
+    const handleInput = () => {
+        navigateTo(`/search/${searchText}`)
+    }
+
     return(
         <div className="wrap">
             <div className="search">
@@ -12,20 +19,15 @@ function SearchBar() {
                         America's Leading experts in <br/> Real Estate & Development
                     </h3>
                 </div>
-                <input type="text" className="searchTerm" placeholder="Enter an address, ZIP code or city"></input>
-                {/* link to the seller's page */}
-                {/*{this.props.auth && this.props.auth.user && this.props.auth.user.name ?*/}
-                {/*    <Link to="/buyerViewListing">*/}
-                {/*        <button type="submit" className="searchButton" onClick={()=>this.navigateToBuyer()}>*/}
-                <button type="submit" className="searchButton" >
+                <input type="text" className="searchTerm" placeholder="Enter a ZIP code"
+                       value={searchText} onChange={(e) => {
+                           setSearchText(e.target.value)
+                }}></input>
+
+                <button type="submit" className="searchButton" onClick={handleInput}>
                     <FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>
-                            {/*<i className="fa fa-search"></i>*/}
-                        </button>
-                    {/*<button type="submit" className="searchButton" onClick={()=>this.navigateToBuyer()}>*/}
-                    {/*    <button type="submit" className="searchButton" >*/}
-                    {/*    <i className="fa fa-search"></i>*/}
-                    {/*</button>*/}
-                {/*}*/}
+                </button>
+
             </div>
         </div>
     )

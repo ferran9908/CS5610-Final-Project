@@ -5,16 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0838aaf-6a47-47a8-9efe-9ddbda0a1261" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/House/HouseCard.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/House/HouseCard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Map/MapContainer.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Map/MapContainer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/TopNav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/TopNav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HomeScreen/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomeScreen/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/HomeScreen/HomeScreen.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/HomeScreen/HomeScreen.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/House/HouseDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/House/HouseDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MyProfile/MyProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MyProfile/MyProfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SearchBar/SearchBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchBar/SearchBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/slices/houseSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/slices/houseSlice.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +22,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
+
         <option value="JavaScript File" />
         <option value="CSS File" />
       </list>
