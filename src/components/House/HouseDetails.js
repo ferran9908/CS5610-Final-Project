@@ -8,6 +8,9 @@ import { useDispatch, useSelector } from "react-redux";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
+
+import {createBooking} from '../../store/slices/bookingSlice'
+import { useLocation } from "react-router-dom"
 import { deleteHouse, findHouse, likeHouseInDb, unlikeHouseInDb } from "../../store/slices/houseSlice";
 import { getMe } from "../../store/slices/authSlice";
 import { createMessage } from "../../store/slices/messageSlice";
@@ -30,13 +33,24 @@ function HouseDetails() {
     const currentHouse = useSelector(state => state.houses.currentHouse)
     const user = useSelector(state => state.auth.user)
     const jwt = useSelector(state => state.auth.jwt)
+
     const [show, setShow] = useState(false);
+
+    const [images, setImages] = useState([])
+    const location = useLocation()
+
+    const handleChange = (e) => {
+        const value = e.target.value;
+        const name = e.target.name;
+        setFormData({ ...formData, [name]: value })
+    }
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    // const today = new Date();
-    const [smShow, setSmShow] = useState(false);
-    // const [lgShow, setLgShow] = useState(false);
+    const handleBook = () => {
+        
+
+    }
 
     const [message, setMessage] = useState('')
 
@@ -53,6 +67,8 @@ function HouseDetails() {
         }
     }
 
+
+    const [smShow, setSmShow] = useState(false);
 
     useEffect(() => {
         dispatch(findHouse(id))
@@ -113,20 +129,20 @@ function HouseDetails() {
                                             <Form>
                                                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                                     <Form.Label>Enter Date:</Form.Label>
-                                                    <Form.Control type="date" name="tour-date" placeholder="Enter Tour Date" />
+                                                    <Form.Control type="date" name="date" placeholder="Enter Tour Date" />
 
                                                 </Form.Group>
 
                                                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                                     <Form.Label>Enter Date:</Form.Label>
-                                                    <Form.Control type="time" name="tour-date" placeholder="Enter Tour Date" />
+                                                    <Form.Control type="time" name="time" placeholder="Enter Tour Date" />
 
                                                 </Form.Group>
                                             </Form>
                                         </Modal.Body>
 
                                         <Modal.Footer>
-                                            <Button variant="primary" onClick={handleClose}>
+                                            <Button variant="primary" onClick={handleBook}>
                                                 Book
                                             </Button>
                                         </Modal.Footer>
