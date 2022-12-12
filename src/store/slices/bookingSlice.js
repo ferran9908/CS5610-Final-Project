@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
+import { getMe } from './authSlice'
 
 const BASE_URL = `${process.env.REACT_APP_BASE_URL}/booking`
 
@@ -32,11 +33,19 @@ export const { getAllBookings, getAllBookingsBuyer, getAllBookingsSeller } = Boo
 
 export default BookingSlice.reducer
 
-export const createBooking = (payload) => {
-    return async () => {
-        await axios.post(`${BASE_URL}/book-tour`, payload)
+export const createBooking = (payload, jwt, id ) => {
+    return async (dispatch) => {
+        console.log("Created")
+        await axios.post(`${BASE_URL}/book`, payload, {
+            headers: {
+                'Authorization': `Bearer ${jwt}`
+            }
+        })
+        dispatch(getMe({ id }))
+
     }
 }
+
 
 export const deleteBooking = (bid) => {
     return async () => {
