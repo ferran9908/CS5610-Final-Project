@@ -117,30 +117,39 @@ function HouseDetails() {
 
                 <div className="row container">
                     <div className="col-lg-6 col-md-4 col-sm-12">
-                        {/*<img className="listingImage"*/}
-                        {/*    src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"*/}
-                        {/*    alt="listing"*/}
-                        {/*/>*/}
+                        {
+                            !currentHouse.images.image &&
+                            <img className="listingImage"
+                                 src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                                 alt="listing"
+                            />
+                        }
 
-                        <Carousel activeIndex={index} onSelect={handleSelect}>
-                            { currentHouse && currentHouse.images && currentHouse.images.map (
-                                image => {
-                                    console.log({url: `${BASE_URL}/${image.image.pic}`})
-                                    return (
-                                    <Carousel.Item>
-                                        <img
-                                            className=" listingImage"
-                                            src={`${BASE_URL}/${image.image.pic}`}
-                                            alt="Loading House Image.."
-                                        />
+                        {
+                            currentHouse.images.image &&
+                            <Carousel activeIndex={index} onSelect={handleSelect}>
+                                { currentHouse && currentHouse.images && currentHouse.images.map (
+                                    image => {
+                                        console.log({url: `${BASE_URL}/${image.image.pic}`})
+                                        return (
+                                            <Carousel.Item>
+                                                <img
+                                                    className=" listingImage"
+                                                    src={`${BASE_URL}/${image.image.pic}`}
+                                                    alt="Loading House Image.."
+                                                />
 
-                                    </Carousel.Item>
-                                )}
-                            )
+                                            </Carousel.Item>
+                                        )}
+                                )
 
-                            }
+                                }
 
-                        </Carousel>
+                            </Carousel>
+                        }
+                        
+
+                        
 
                         <div className="row houses-fav-book">
                             {/**/}

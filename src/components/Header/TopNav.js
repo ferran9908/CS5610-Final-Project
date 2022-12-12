@@ -38,7 +38,7 @@ function TopNav() {
                             }
                             {
                                 authData && authData.user.role === 'BUYER' && <div className="navbar-flex">
-                                    <Nav.Link href="/">Favorites</Nav.Link>
+                                    <Nav.Link href="/favourites">Favorites</Nav.Link>
                                     <Nav.Link href="/booking">Bookings</Nav.Link>
                                 </div>
                             }

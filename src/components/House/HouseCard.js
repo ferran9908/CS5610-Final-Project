@@ -11,7 +11,6 @@ function HouseCard({ name, streetAddress, price, description, images })
     const handleSelect = (selectedIndex, e) => {
         setIndex(selectedIndex);
     };
-    console.log(images)
 
     return (
         <div>
@@ -24,26 +23,37 @@ function HouseCard({ name, streetAddress, price, description, images })
                         {/*    alt="House"*/}
                         {/*/>*/}
 
-                        <Carousel activeIndex={index} onSelect={handleSelect}>
-                            { images && images.map (
+                        {
+                            !images.image &&
+                            <img className="listingImage-card"
+                                 src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                                 alt="Card cap" />
+                        }
 
-                                image => {
-                                    console.log({url: `${BASE_URL}/${image.image.pic}`})
-                                    return (
-                                        <Carousel.Item>
-                                            <img
-                                                className=" listingImage"
-                                                src={`${BASE_URL}/${image.image.pic}`}
-                                                alt="Loading House Image.."
-                                            />
+                        {
+                            images.image &&  <Carousel activeIndex={index} onSelect={handleSelect}>
+                                { images && images.map (
 
-                                        </Carousel.Item>
-                                    )}
-                            )
+                                    image => {
+                                        console.log({url: `${BASE_URL}/${image.image.pic}`})
+                                        return (
+                                            <Carousel.Item>
+                                                <img
+                                                    className=" listingImage"
+                                                    src={`${BASE_URL}/${image.image.pic}`}
+                                                    alt="Loading House Image.."
+                                                />
 
-                            }
+                                            </Carousel.Item>
+                                        )}
+                                )
 
-                        </Carousel>
+                                }
+
+                            </Carousel>
+                        }
+
+
                     </div>
 
                     <div className='col-lg-6 col-md-8 col-sm-12'>

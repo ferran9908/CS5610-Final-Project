@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { findAllHouses, findSellerHouses } from '../../store/slices/houseSlice'
 import HouseCard from '../House/HouseCard'
+import './Houses.css'
 
 const Houses = () => {
     const dispatch = useDispatch()
@@ -20,9 +21,13 @@ const Houses = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     return (
-        <div>
+        <div className="card-HouseDetails">
+            <div className="card-title-House">
+                    My Houses
+            </div>
             {houses && houses.map((house, idx) => <Link key={idx} className="houseLink" to={`/house/${house._id}`} style={{ textDecoration: 'none' }}>
-                <HouseCard name={house.name} streetAddress={house.streetAddress} price={house.price} description={house.description} />
+                <HouseCard name={house.name} streetAddress={house.streetAddress} price={house.price}
+                           description={house.description} images={house.images} />
             </Link>)}
         </div>
     )
