@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
+import { getMe } from './authSlice'
+
 
 const BASE_URL = `${process.env.REACT_APP_BASE_URL}/message`
 
@@ -23,9 +25,16 @@ export const { getAllMessages } = MessageSlice.actions
 
 export default MessageSlice.reducer
 
-export const createMessage = (payload) => {
-    return async () => {
-        await axios.post(`${BASE_URL}/send-message`, payload)
+
+export const createMessage = ({ payload, jwt, id }) => {
+    return async (dispatch) => {
+        await axios.post(`${BASE_URL}/send-message`, payload, {
+            headers: {
+                'Authorization': `Bearer ${jwt}`
+            }
+        })
+        dispatch(getMe({ id }))
+
     }
 }
 

@@ -8,14 +8,12 @@ import { useDispatch, useSelector } from "react-redux";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
-<<<<<<< HEAD
+
 import {createBooking} from '../../store/slices/bookingSlice'
 import { useLocation } from "react-router-dom"
-
-=======
 import { deleteHouse, findHouse, likeHouseInDb, unlikeHouseInDb } from "../../store/slices/houseSlice";
 import { getMe } from "../../store/slices/authSlice";
->>>>>>> 625fa8f249d9c8b845fae89f18db296a3d6fb84c
+import { createMessage } from "../../store/slices/messageSlice";
 
 const isHouseLiked = (houseId, favoriteHouses) => {
     const likedArray = favoriteHouses.filter(house => {
@@ -33,7 +31,6 @@ function HouseDetails() {
     const { id } = useParams()
     const dispatch = useDispatch()
     const currentHouse = useSelector(state => state.houses.currentHouse)
-    const favoriteHouses = useSelector(state => state.auth.user.favHouses)
     const user = useSelector(state => state.auth.user)
     const jwt = useSelector(state => state.auth.jwt)
 
@@ -55,12 +52,30 @@ function HouseDetails() {
 
     }
 
+    const [message, setMessage] = useState('')
+
+    const handleMessageSubmit = () => {
+        if (user) {
+            const payload = {
+                user: user._id,
+                description: message,
+                house: id,
+                sellerEmailId: currentHouse.sellerEmailId
+            }
+            dispatch(createMessage({ payload, jwt, id: user._id }))
+            setShow(false)
+        }
+    }
+
 
     const [smShow, setSmShow] = useState(false);
 
     useEffect(() => {
         dispatch(findHouse(id))
-        dispatch(getMe({ id: user._id }))
+        if (user) {
+            dispatch(getMe({ id: user._id }))
+            // favoriteHouses = user.favHouses
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
@@ -81,9 +96,10 @@ function HouseDetails() {
                 <div className="card-title-House">
                     Welcome to {currentHouse.name}
 
-                    {isHouseLiked(id, favoriteHouses) ?
+                    {jwt ? isHouseLiked(id, user.favHouses) ?
                         <FontAwesomeIcon onClick={unlikeHouse} style={{ cursor: 'pointer' }} className="iconFav" icon={faHeart} color={'red'} />
-                        : <FontAwesomeIcon onClick={likeHouse} style={{ cursor: 'pointer' }} className="iconFav" icon={faHeart} color={'white'} />}
+                        : <FontAwesomeIcon onClick={likeHouse} style={{ cursor: 'pointer' }} className="iconFav" icon={faHeart} color={'white'} />
+                        : <></>}
                 </div>
 
                 <div className="row container">
@@ -96,7 +112,7 @@ function HouseDetails() {
                         <div className="row houses-fav-book">
                             {/**/}
                             {
-                                user.role === 'BUYER' &&
+                                user && user.role === 'BUYER' &&
                                 <div>
                                     <Button onClick={() => setSmShow(true)} className="me-2 col-lg-4 col-sm-12">
                                         Book Tour
@@ -134,37 +150,37 @@ function HouseDetails() {
                                     </Modal>
 
 
-                                        <button  type="button" className="btn btn-primary col-lg-4 col-sm-12" variant="primary"
-                                                 onClick={handleShow}>Contact Seller</button>
+                                    <button type="button" className="btn btn-primary col-lg-4 col-sm-12" variant="primary"
+                                        onClick={handleShow}>Contact Seller</button>
 
-                                        <Modal show={show} onHide={handleClose}>
-                                            <Modal.Header closeButton>
-                                                <Modal.Title>Send Message to Seller</Modal.Title>
-                                            </Modal.Header>
-                                            <Modal.Body>
-                                                <Form>
-                                                    <Form.Group
-                                                        className="mb-3"
-                                                        controlId="exampleForm.ControlTextarea1"
-                                                    >
-                                                        <Form.Label>Description</Form.Label>
-                                                        <Form.Control as="textarea" rows={3} />
-                                                    </Form.Group>
-                                                </Form>
-                                            </Modal.Body>
-                                            <Modal.Footer>
-                                                <Button variant="primary" onClick={handleClose}>
-                                                    Send
-                                                </Button>
-                                            </Modal.Footer>
-                                        </Modal>
+                                    <Modal show={show} onHide={handleClose}>
+                                        <Modal.Header closeButton>
+                                            <Modal.Title>Send Message to Seller</Modal.Title>
+                                        </Modal.Header>
+                                        <Modal.Body>
+                                            <Form>
+                                                <Form.Group
+                                                    className="mb-3"
+                                                    controlId="exampleForm.ControlTextarea1"
+                                                >
+                                                    <Form.Label>Description</Form.Label>
+                                                    <Form.Control value={message} onChange={e => setMessage(e.target.value)} as="textarea" rows={3} />
+                                                </Form.Group>
+                                            </Form>
+                                        </Modal.Body>
+                                        <Modal.Footer>
+                                            <Button variant="primary" onClick={handleMessageSubmit}>
+                                                Send
+                                            </Button>
+                                        </Modal.Footer>
+                                    </Modal>
 
                                 </div>
 
 
                             }
                             {
-                                user.role === 'SELLER' &&
+                                user && user.role === 'SELLER' &&
                                 <div className="col-8">
                                     <Link to={"/addHouse"} state={{ currentHouse }}>
                                         <button className="btn btn-primary">Edit</button>
@@ -178,7 +194,7 @@ function HouseDetails() {
 
                             }
                             {
-                                user.role === 'ADMIN' && <div className="col-6">
+                                user && user.role === 'ADMIN' && <div className="col-6">
                                     <button onClick={(e) => {
                                         e.preventDefault()
                                         dispatch(deleteHouse({ hid: currentHouse._id, jwt }))
