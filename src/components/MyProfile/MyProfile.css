@@ -1,6 +1,6 @@
 .card-profile {
     width: 90%;
-    height: 350px;
+    /* height: 350px; */
     margin-top: 100px;
     margin-left: 40px;
     margin-right: 10px;
@@ -8,7 +8,6 @@
     /*margin: 10px;*/
     /*padding: 15px;*/
     font-size: x-large;
-    align-text: center;
     background: #EFE9E1 !important;
     font-family: Baskerville;
     color: black;
@@ -23,7 +22,6 @@
     margin-right: 10px;
     padding: 30px;
     font-size: x-large;
-    align-text: center;
     background: #EFE9E1 !important;
     font-family: Baskerville;
     color: black;
@@ -66,7 +64,6 @@
         margin-right: 10px;
         padding: 30px;
         font-size: x-large;
-        align-text: center;
         background: #EFE9E1 !important;
         font-family: Baskerville;
         color: black;

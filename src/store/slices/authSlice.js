@@ -18,11 +18,10 @@ export const AuthSlice = createSlice({
             state.error = null
             return state
         },
-        // setUser: (state, action) => {
-        //     console.log({ payload: action.payload })
-        //     state.user = action.payload
-        //     return state
-        // },
+        setUser: (state, action) => {
+            state.user = action.payload
+            return state
+        },
         logout: () => {
             return { jwt: null, error: null, user: null }
         }
@@ -30,7 +29,7 @@ export const AuthSlice = createSlice({
     initialState
 })
 
-export const { authenticateUser, logout, setError } = AuthSlice.actions
+export const { authenticateUser, logout, setError, setUser } = AuthSlice.actions
 
 export default AuthSlice.reducer
 
@@ -77,6 +76,18 @@ export const getCurrentUserData = (jwt) => {
             const user = userResponse.data
             console.log({ user })
             dispatch(authenticateUser(user))
+        } catch (e) {
+            console.error({ error: e })
+        }
+    }
+}
+
+export const getMe = ({ id }) => {
+    return async dispatch => {
+        try {
+            const userResponse = await axios.get(`${BASE_URL}/user/fetch-user?id=${id}`)
+            const response = userResponse.data
+            dispatch(setUser(response))
         } catch (e) {
             console.error({ error: e })
         }
