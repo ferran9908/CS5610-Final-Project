@@ -35,14 +35,17 @@ const Map = () => {
     }, [])
 
     return (
-        <div className="map-container">
-            <LoadScript googleMapsApiKey={API_KEY}>
-                <GoogleMap
-                    mapContainerStyle={containerStyle} center={{ lat: lat, lng: lng }} zoom={15} >
-                    <MarkerF position={{ lat: lat, lng: lng }}></MarkerF>
-                </GoogleMap>
-            </LoadScript>
-            <div>
+        <div className="map-container  ">
+            <div className="col-lg-4" >
+                <LoadScript googleMapsApiKey={API_KEY}>
+                    <GoogleMap
+                        mapContainerStyle={containerStyle} center={{ lat: lat, lng: lng }} zoom={15} >
+                        <MarkerF position={{ lat: lat, lng: lng }}></MarkerF>
+                    </GoogleMap>
+                </LoadScript>
+            </div>
+
+            <div className="col-lg-8 col-sm-12">
                 {housesByZip && housesByZip.map(house => {
                     return <HouseCard name={house.name}
                         streetAddress={house.streetAddress}

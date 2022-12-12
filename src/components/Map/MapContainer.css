@@ -1,7 +1,9 @@
 .map-container{
     display: flex;
     align-items: center;
+    /*width: 100%;*/
     flex-direction: column;
     justify-content: center;
     height: 100vh;
+    margin: 30px;
 }
