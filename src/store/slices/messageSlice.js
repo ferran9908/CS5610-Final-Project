@@ -47,12 +47,12 @@ export const deleteMessage = (mid) => {
 export const findAllMessages = ({ jwt }) => {
     //Get id from jwt token
     return async dispatch => {
-        const findBookings = await axios.get(`${BASE_URL}/get-messages`, {
+        const findMessages = await axios.get(`${BASE_URL}/get-messages`, {
             headers: {
                 'Authorization': `Bearer ${jwt}`
             }
         })
-        const bookings = findBookings.data
-        dispatch(getAllMessages(bookings))
+        const messages = findMessages.data
+        dispatch(getAllMessages(messages))
     }
 }

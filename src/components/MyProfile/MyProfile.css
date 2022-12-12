@@ -33,6 +33,9 @@
 
 .card-title-profile {
     margin-bottom: 20px;
+    background-color: #D1C7BD;
+    color: #322D29;
+    padding: 15px ;
 }
 
 .edit-profile-btn {
