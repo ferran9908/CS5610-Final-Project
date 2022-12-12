@@ -8,13 +8,15 @@ import { useDispatch, useSelector } from "react-redux";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
-
 import { createBooking } from '../../store/slices/bookingSlice'
 import { deleteHouse, findHouse, likeHouseInDb, unlikeHouseInDb } from "../../store/slices/houseSlice";
 import { getMe } from "../../store/slices/authSlice";
 import { createMessage } from "../../store/slices/messageSlice";
+import Carousel from 'react-bootstrap/Carousel';
+const BASE_URL = process.env.REACT_APP_BASE_URL
 
 const isHouseLiked = (houseId, favoriteHouses) => {
+
     const likedArray = favoriteHouses.filter(house => {
         if (house.house._id === houseId) {
             return true
@@ -36,7 +38,11 @@ function HouseDetails() {
     const [show, setShow] = useState(false);
     const [bookingDate, setBookingDate] = useState('')
     const [bookingTime, setBookingTime] = useState('');
+    const [index, setIndex] = useState(0);
 
+    const handleSelect = (selectedIndex, e) => {
+        setIndex(selectedIndex);
+    };
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -111,10 +117,30 @@ function HouseDetails() {
 
                 <div className="row container">
                     <div className="col-lg-6 col-md-4 col-sm-12">
-                        <img className="listingImage"
-                            src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
-                            alt="listing"
-                        />
+                        {/*<img className="listingImage"*/}
+                        {/*    src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"*/}
+                        {/*    alt="listing"*/}
+                        {/*/>*/}
+
+                        <Carousel activeIndex={index} onSelect={handleSelect}>
+                            { currentHouse && currentHouse.images && currentHouse.images.map (
+                                image => {
+                                    console.log({url: `${BASE_URL}/${image.image.pic}`})
+                                    return (
+                                    <Carousel.Item>
+                                        <img
+                                            className=" listingImage"
+                                            src={`${BASE_URL}/${image.image.pic}`}
+                                            alt="Loading House Image.."
+                                        />
+
+                                    </Carousel.Item>
+                                )}
+                            )
+
+                            }
+
+                        </Carousel>
 
                         <div className="row houses-fav-book">
                             {/**/}

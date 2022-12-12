@@ -15,7 +15,11 @@ const AllHouses = () => {
     return (
         <div>
             {houses && houses.map((house, idx) => <Link key={idx} className="houseLink" to={`/house/${house._id}`} style={{ textDecoration: 'none' }}>
-                <HouseCard name={house.name} streetAddress={house.streetAddress} price={house.price} description={house.description} />
+                <HouseCard name={house.name}
+                           streetAddress={house.streetAddress}
+                           price={house.price}
+                           description={house.description}
+                           images={house.images}/>
             </Link>)}
         </div>
     )
