@@ -33,7 +33,7 @@ export const { getAllBookings, getAllBookingsBuyer, getAllBookingsSeller } = Boo
 
 export default BookingSlice.reducer
 
-export const createBooking = (payload, jwt, id ) => {
+export const createBooking = ({payload, jwt, id} ) => {
     return async (dispatch) => {
         console.log("Created")
         await axios.post(`${BASE_URL}/book`, payload, {

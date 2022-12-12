@@ -50,6 +50,7 @@ function HouseDetails() {
                 buyerEmailId: user.email,
                 house: currentHouse._id,
                 sellerEmailId: currentHouse.sellerEmailId,
+                sellerID: "Seller ID",
                 date: bookingDate,
                 time: bookingTime
             }
