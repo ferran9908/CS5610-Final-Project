@@ -7,6 +7,7 @@ const BASE_URL = `${process.env.REACT_APP_BASE_URL}/house`
 const initialState = {
     currentHouse: null,
     houses: [],
+    housesByZip: []
 }
 
 const houseSlice = createSlice(
@@ -22,12 +23,16 @@ const houseSlice = createSlice(
                 state.houses = action.payload;
                 return state
             },
+            setHousesByZip: (state, action) => {
+                state.housesByZip = action.payload
+                return state
+            }
         }
     }
 )
 
 export default houseSlice.reducer
-export const { getHouse, getAllHouses } = houseSlice.actions
+export const { getHouse, getAllHouses, setHousesByZip} = houseSlice.actions
 
 export const createHouse = ({ payload, jwt }) => {
     return async () => {
@@ -108,5 +113,13 @@ export const unlikeHouseInDb = ({ jwt, houseId, userId }) => {
             }
         })
         dispatch(getMe({ id: userId }))
+    }
+}
+
+export const getHousesByZip = ({zip}) => {
+    return async dispatch => {
+        const res = await axios.get(`${BASE_URL}/get-house-by-zipcode?zip=${zip}`)
+        const houses = res.data
+        dispatch(setHousesByZip(houses))
     }
 }
