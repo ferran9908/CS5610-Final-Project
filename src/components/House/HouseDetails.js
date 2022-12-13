@@ -136,7 +136,7 @@ function HouseDetails() {
                                                 <img
                                                     className=" listingImage"
                                                     src={`${BASE_URL}/${image.image.pic}`}
-                                                    alt="Loading House Image.."
+                                                    alt="Loading House .."
                                                 />
 
                                             </Carousel.Item>
@@ -222,7 +222,7 @@ function HouseDetails() {
 
                             }
                             {
-                                user && user.role === 'SELLER' &&
+                                user && user.role === 'SELLER' && user.email === currentHouse.sellerEmailId &&
                                 <div className="col-8">
                                     <Link to={"/addHouse"} state={{ currentHouse }}>
                                         <button className="btn btn-primary">Edit</button>
