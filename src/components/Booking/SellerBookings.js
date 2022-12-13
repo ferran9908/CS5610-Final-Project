@@ -22,7 +22,7 @@ function SellerBookings() {
 
             {user.bookings.map(booking => {
                 return <BookingCard key={booking._id} id={booking._id}
-                                    houseName={booking.booking.house.name}
+                                    houseName={booking.booking?.house?.name}
                                     date={booking.booking.date}
                                     time={booking.booking.time}
                                     bid = {booking.booking._id}
