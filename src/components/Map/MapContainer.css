@@ -1,9 +1,36 @@
 .map-container{
-    display: flex;
+    /*display: flex;*/
     align-items: center;
     /*width: 100%;*/
-    flex-direction: column;
+    /*flex-direction: column;*/
     justify-content: center;
     height: 100vh;
-    margin: 30px;
+    margin-top: 30px;
+    width: 100%;
+    margin-left: 500px;
+    margin-right: 200px;
+    margin-bottom: -350px;
+
+}
+
+.houses {
+    margin-top: -100px;
+}
+
+@media screen and (max-width:720px) {
+    /*CSS code for devices with a maximal width of 720 px - phone*/
+    .map-container{
+        /*display: flex;*/
+        align-items: center;
+        /*width: 100%;*/
+        /*flex-direction: column;*/
+        justify-content: center;
+        height: 50vh;
+        margin-top: 30px;
+        width: 40%;
+        margin-left: 10px;
+        margin-right: 20px;
+        margin-bottom: 50px;
+
+    }
 }
