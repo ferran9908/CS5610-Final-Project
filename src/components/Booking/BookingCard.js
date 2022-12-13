@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { acceptBooking, findAllBookings, findAllBookingsSeller } from "../../store/slices/bookingSlice";
 import React, { useEffect } from 'react';
 
-function BookingCard({houseName, date='', time='', bid='', isAccepted,images}) {
+function BookingCard({houseName, date='', time='', bid='', isAccepted,images,buyerEmail,sellerEmail}) {
     const authData = useSelector(state => state.auth)
     const dispatch = useDispatch()
 
@@ -50,6 +50,8 @@ function BookingCard({houseName, date='', time='', bid='', isAccepted,images}) {
                 <ul className="list-group list-group-flush">
                     <li className="list-group-item">Date: {date.split('T')[0]}</li>
                     <li className="list-group-item">Time: {time}</li>
+                    <li className="list-group-item">Buyer Conatct: {buyerEmail}</li>
+                    <li className="list-group-item">Seller Contact: {sellerEmail}</li>
                 </ul>
 
                 {

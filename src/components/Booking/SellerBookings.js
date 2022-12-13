@@ -28,6 +28,8 @@ function SellerBookings() {
                                     bid = {booking.booking._id}
                                     isAccepted={booking.booking.isAccepted}
                                     images={booking.booking.house.images}
+                                    buyerEmail={booking.booking.buyerEmailId}
+                                    sellerEmail={booking.booking.sellerEmailId}
                 />
             }
             )}
