@@ -1,7 +1,7 @@
 import "./HouseCard.css"
 import React, {useState, useEffect} from 'react';
 import Carousel from 'react-bootstrap/Carousel';
-const BASE_URL = process.env.REACT_APP_BASE_URL
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 
 function HouseCard({ name, streetAddress, price, description, images })

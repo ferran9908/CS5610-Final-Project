@@ -1,11 +1,20 @@
 
 import { useDispatch, useSelector } from "react-redux";
 import { acceptBooking, findAllBookings, findAllBookingsSeller } from "../../store/slices/bookingSlice";
-import React, { useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
+import Carousel from 'react-bootstrap/Carousel';
+
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 function BookingCard({houseName, date='', time='', bid='', isAccepted,images,buyerEmail,sellerEmail}) {
     const authData = useSelector(state => state.auth)
     const dispatch = useDispatch()
+    const [index, setIndex] = useState(0);
+
+    const handleSelect = (selectedIndex, e) => {
+        setIndex(selectedIndex);
+    };
+
 
     return (
     <div className="col" >
