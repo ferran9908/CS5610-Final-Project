@@ -55,7 +55,7 @@ function AddHouse() {
         }
 
         for (let i = 0; i < images.length; i++) {
-            data.append('file', images[0])
+            data.append('file', images[i])
         }
 
         const currentImages = await (await fetch(`${BASE_URL}/upload-images`, { method: 'POST', body: data })).json()
@@ -249,7 +249,7 @@ function AddHouse() {
                         </div>
 
                         <div className="col-lg-1 col-sm-12">
-                            <button  className="btn" onClick={imageUploadHandler}>Upload</button>
+                            <button className="btn" onClick={imageUploadHandler}>Upload</button>
                         </div>
                     </div>
 
