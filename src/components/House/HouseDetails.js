@@ -47,7 +47,6 @@ function HouseDetails() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const handleBook = () => {
-        console.log("Here")
         if (user) {
             const payload = {
                 buyerID: user._id,
@@ -59,7 +58,7 @@ function HouseDetails() {
                 time: bookingTime
             }
             dispatch(createBooking({ payload, jwt, id: user._id }))
-            console.log(payload)
+            setSmShow(false)
         }
 
     }
