@@ -176,7 +176,7 @@ function HouseDetails() {
                                                 </Form.Group>
 
                                                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                                                    <Form.Label>Enter Date:</Form.Label>
+                                                    <Form.Label>Enter Time:</Form.Label>
                                                     <Form.Control type="time" value={bookingTime} onChange={e => setBookingTime(e.target.value)} placeholder="Enter Tour Time" />
 
                                                 </Form.Group>
