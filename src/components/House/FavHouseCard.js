@@ -26,7 +26,7 @@ const FavHouseCard = ({ house }) => {
                     house.images.length ? <Carousel activeIndex={index} onSelect={handleSelect}>
                         { house.images.map (
                             image => {
-                                console.log({url: `${BASE_URL}/${image.image.pic}`})
+                                console.log({url: `${BASE_URL}/${image.pic}`})
                                 return (
                                     <Carousel.Item>
                                         <img

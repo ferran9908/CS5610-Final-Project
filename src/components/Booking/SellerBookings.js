@@ -27,6 +27,7 @@ function SellerBookings() {
                                     time={booking.booking.time}
                                     bid = {booking.booking._id}
                                     isAccepted={booking.booking.isAccepted}
+                                    images={booking.booking.house.images}
                 />
             }
             )}
