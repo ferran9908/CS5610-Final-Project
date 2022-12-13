@@ -17,7 +17,13 @@ const BASE_URL = process.env.REACT_APP_BASE_URL
 
 const isHouseLiked = (houseId, favoriteHouses) => {
 
-    const likedArray = favoriteHouses.filter(house => {
+    const likedArray = favoriteHouses.filter(houseEl=>{
+        if (!houseEl.house) {
+            return false;
+        }
+        else {
+            return true;
+        }}).filter(house => {
         if (house.house._id === houseId) {
             return true
         }

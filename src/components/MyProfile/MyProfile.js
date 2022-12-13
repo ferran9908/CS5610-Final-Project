@@ -43,7 +43,14 @@ const MyProfile = () => {
                     <div className="card-favourite">
                         <h1 className="card-title-profile ">Favorites</h1>
                         <div className="row row-cols-1 row-cols-md-3 g-4">
-                            {profile && profile.favHouses && profile.favHouses.map(house => <FavHouseCard house={house.house} key={house.house._id} />)}
+                            {profile && profile.favHouses && profile.favHouses.filter(houseEl=>{
+                                if (!houseEl.house) {
+                                    return false;
+                                }
+                                else {
+                                    return true;
+                                }
+                            }).map(house => <FavHouseCard house={house.house} key={house.house._id} />)}
                         </div>
 
                     </div>

@@ -25,8 +25,17 @@ function SellerMessages() {
 
         <div className="row row-cols-1 row-cols-md-4 g-4">
 
-            {user.messages.map(message => {
-                return <Message key={message._id} id={message._id} houseName={message.message.house.name} name={message.message.user.name} message={message.message.description} />
+            {user.messages.filter(messageEl=>{
+                if (!messageEl.message.house) {
+                    return false;
+                }
+                else {
+                    return true;
+                }}).map(message => {
+                return <Message key={message._id} id={message._id}
+                                houseName={message.message.house.name}
+                                name={message.message.user.name}
+                                message={message.message.description} />
             })}
 
 
